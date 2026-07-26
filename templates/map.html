@@ -12,55 +12,437 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 
 #map{
-    height:650px;
+    height:700px;
     width:100%;
-    border-radius:12px;
+    border-radius:18px;
 }
 
 </style>
 
 <div class="container-fluid">
 
-    <!-- Header -->
+    <!-- ============================================= -->
+    <!-- PAGE HERO -->
+    <!-- ============================================= -->
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <section class="card border-0 shadow-lg overflow-hidden mb-5">
 
-        <div>
+        <div class="card-body p-0">
 
-            <h2 class="fw-bold text-success">
+            <div class="row g-0 align-items-center">
 
-                <i class="bi bi-geo-alt-fill"></i>
+                <div class="col-lg-8">
 
-                Farmer Location Map
+                    <div class="p-5">
 
-            </h2>
+                        <span class="badge bg-success px-3 py-2 mb-3">
 
-            <p class="text-muted">
+                            <i class="bi bi-geo-alt-fill me-2"></i>
 
-                Click on any farmer marker to view complete details.
+                            Government GIS Monitoring Portal
 
-            </p>
+                        </span>
+
+                        <h1 class="display-5 fw-bold mb-3">
+
+                            Farmer Location Map
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-4">
+
+                            Visualize registered farmer locations across the
+                            AgriSetu Smart Agricultural Subsidy Management
+                            System. Monitor GIS records, verify locations,
+                            and access complete farmer information directly
+                            from the interactive map.
+
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3">
+
+                            <a href="{{ url_for('dashboard') }}"
+                               class="btn btn-success btn-lg">
+
+                                <i class="bi bi-speedometer2 me-2"></i>
+
+                                Dashboard
+
+                            </a>
+
+                            <button
+                                class="btn btn-outline-success btn-lg"
+                                disabled>
+
+                                <i class="bi bi-map-fill me-2"></i>
+
+                                GIS Monitoring
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="p-5 text-center">
+
+                        <div
+                            class="rounded-circle bg-success text-white shadow mx-auto d-flex justify-content-center align-items-center"
+                            style="width:170px;height:170px;font-size:75px;">
+
+                            <i class="bi bi-globe-central-south-asia"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <a href="{{ url_for('dashboard') }}"
-           class="btn btn-success">
+    </section>
 
-            <i class="bi bi-speedometer2"></i>
+    <!-- ============================================= -->
+    <!-- SUMMARY CARDS -->
+    <!-- ============================================= -->
 
-            Dashboard
+    <div class="row g-4 mb-5">
 
-        </a>
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                Registered Farmers
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2">
+
+                                {{ farmers|length }}
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-success">
+
+                            <i class="bi bi-people-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                GIS Records
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2">
+
+                                {{ farmers|length }}
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-primary">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                State Coverage
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2">
+
+                                Tamil Nadu
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-warning">
+
+                            <i class="bi bi-map-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                Monitoring
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2 text-success">
+
+                                Active
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-success">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <!-- Map -->
+    <!-- ============================================= -->
+    <!-- MAP -->
+    <!-- ============================================= -->
 
-    <div class="card shadow">
+    <div class="card border-0 shadow-lg">
+
+        <div class="card-header bg-success text-white py-3 d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+
+                <i class="bi bi-geo-alt-fill me-2"></i>
+
+                Interactive Farmer GIS Map
+
+            </h4>
+
+            <span class="badge bg-light text-success fs-6">
+
+                {{ farmers|length }} Locations
+
+            </span>
+
+        </div>
 
         <div class="card-body">
 
             <div id="map"></div>
+                    </div>
+
+    </div>
+
+    <!-- ============================================= -->
+    <!-- GIS INFORMATION -->
+    <!-- ============================================= -->
+
+    <div class="row g-4 mt-1">
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-header bg-success text-white">
+
+                    <i class="bi bi-info-circle-fill me-2"></i>
+
+                    GIS Information
+
+                </div>
+
+                <div class="card-body">
+
+                    <ul class="list-unstyled mb-0">
+
+                        <li class="mb-3">
+
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                            Interactive OpenStreetMap integration
+
+                        </li>
+
+                        <li class="mb-3">
+
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                            Farmer location visualization
+
+                        </li>
+
+                        <li class="mb-3">
+
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                            GPS-based subsidy monitoring
+
+                        </li>
+
+                        <li class="mb-3">
+
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                            One-click farmer details
+
+                        </li>
+
+                        <li>
+
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                            Digital location verification
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-header bg-primary text-white">
+
+                    <i class="bi bi-shield-check me-2"></i>
+
+                    Government GIS Monitoring
+
+                </div>
+
+                <div class="card-body">
+
+                    <p class="mb-3">
+
+                        AgriSetu integrates GIS technology to improve
+                        transparency in agricultural subsidy distribution.
+                        Every registered farmer can be geographically
+                        verified for efficient monitoring.
+
+                    </p>
+
+                    <p class="mb-0">
+
+                        Click any red marker on the map to view the
+                        complete farmer profile and subsidy information.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="alert alert-success border-0 shadow-sm mt-4">
+
+        <div class="d-flex">
+
+            <div class="me-3">
+
+                <i class="bi bi-globe-central-south-asia fs-2"></i>
+
+            </div>
+
+            <div>
+
+                <h5 class="fw-bold">
+
+                    Government GIS Advisory
+
+                </h5>
+
+                <p class="mb-2">
+
+                    GIS coordinates help ensure accurate farmer verification,
+                    prevent duplicate registrations and improve transparency
+                    in Government agricultural welfare schemes.
+
+                </p>
+
+                <small class="text-muted">
+
+                    AgriSetu securely stores geographic information for
+                    monitoring and planning purposes.
+
+                </small>
+
+            </div>
 
         </div>
 
@@ -68,22 +450,32 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 </div>
 
+
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
 // Default center (Tamil Nadu)
+
 var map = L.map('map').setView([11.1271, 78.6569], 7);
 
 // OpenStreetMap Tiles
+
 L.tileLayer(
+
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
 {
+
     maxZoom:19,
+
     attribution:'© OpenStreetMap'
+
 }).addTo(map);
 
 // Red Marker
+
 var redIcon = L.icon({
 
     iconUrl:'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
@@ -101,6 +493,7 @@ var redIcon = L.icon({
 });
 
 var bounds = [];
+
 var markerCount = 0;
 
 {% for farmer in farmers %}
@@ -108,6 +501,7 @@ var markerCount = 0;
 {% if farmer.latitude and farmer.longitude %}
 
 var lat = parseFloat("{{ farmer.latitude }}");
+
 var lng = parseFloat("{{ farmer.longitude }}");
 
 if(!isNaN(lat) && !isNaN(lng)){
@@ -120,7 +514,7 @@ if(!isNaN(lat) && !isNaN(lng)){
 
     marker.bindPopup(`
 
-<div style="min-width:300px;">
+<div style="min-width:320px;">
 
 <h5 class="text-success">
 
@@ -128,92 +522,31 @@ if(!isNaN(lat) && !isNaN(lng)){
 
 </h5>
 
-<table class="table table-sm mb-2">
+<table class="table table-sm mb-3">
 
-<tr>
-<td><b>ID</b></td>
-<td>{{ farmer.id }}</td>
-</tr>
-
-<tr>
-<td><b>Age</b></td>
-<td>{{ farmer.age }}</td>
-</tr>
-
-<tr>
-<td><b>Gender</b></td>
-<td>{{ farmer.gender }}</td>
-</tr>
-
-<tr>
-<td><b>Mobile</b></td>
-<td>{{ farmer.mobile }}</td>
-</tr>
-
-<tr>
-<td><b>Aadhaar</b></td>
-<td>{{ farmer.aadhaar }}</td>
-</tr>
-
-<tr>
-<td><b>Village</b></td>
-<td>{{ farmer.village }}</td>
-</tr>
-
-<tr>
-<td><b>District</b></td>
-<td>{{ farmer.district }}</td>
-</tr>
-
-<tr>
-<td><b>Land</b></td>
-<td>{{ farmer.land }} Acres</td>
-</tr>
-
-<tr>
-<td><b>Crop</b></td>
-<td>{{ farmer.crop }}</td>
-</tr>
-
-<tr>
-<td><b>Subsidy</b></td>
-<td>{{ farmer.subsidy }}</td>
-</tr>
-
-<tr>
-<td><b>Eligible</b></td>
-<td>{{ farmer.eligible }}</td>
-</tr>
-
-<tr>
-<td><b>Issued</b></td>
-<td>{{ farmer.issued }}</td>
-</tr>
-
-<tr>
-<td><b>Balance</b></td>
-<td>{{ farmer.balance }}</td>
-</tr>
-
-<tr>
-<td><b>Status</b></td>
-<td>{{ farmer.status }}</td>
-</tr>
-
-<tr>
-<td><b>Latitude</b></td>
-<td>{{ farmer.latitude }}</td>
-</tr>
-
-<tr>
-<td><b>Longitude</b></td>
-<td>{{ farmer.longitude }}</td>
-</tr>
+<tr><td><b>ID</b></td><td>{{ farmer.id }}</td></tr>
+<tr><td><b>Age</b></td><td>{{ farmer.age }}</td></tr>
+<tr><td><b>Gender</b></td><td>{{ farmer.gender }}</td></tr>
+<tr><td><b>Mobile</b></td><td>{{ farmer.mobile }}</td></tr>
+<tr><td><b>Aadhaar</b></td><td>{{ farmer.aadhaar }}</td></tr>
+<tr><td><b>Village</b></td><td>{{ farmer.village }}</td></tr>
+<tr><td><b>District</b></td><td>{{ farmer.district }}</td></tr>
+<tr><td><b>Land</b></td><td>{{ farmer.land }} Acres</td></tr>
+<tr><td><b>Crop</b></td><td>{{ farmer.crop }}</td></tr>
+<tr><td><b>Subsidy</b></td><td>{{ farmer.subsidy }}</td></tr>
+<tr><td><b>Eligible</b></td><td>{{ farmer.eligible }}</td></tr>
+<tr><td><b>Issued</b></td><td>{{ farmer.issued }}</td></tr>
+<tr><td><b>Balance</b></td><td>{{ farmer.balance }}</td></tr>
+<tr><td><b>Status</b></td><td>{{ farmer.status }}</td></tr>
+<tr><td><b>Latitude</b></td><td>{{ farmer.latitude }}</td></tr>
+<tr><td><b>Longitude</b></td><td>{{ farmer.longitude }}</td></tr>
 
 </table>
 
 <a href="{{ url_for('farmer_details', id=farmer.id) }}"
 class="btn btn-success btn-sm w-100">
+
+<i class="bi bi-person-lines-fill me-2"></i>
 
 View Full Details
 
@@ -234,18 +567,24 @@ View Full Details
 {% endfor %}
 
 // Fit map to markers
+
 if(markerCount > 0){
 
     map.fitBounds(bounds,{
+
         padding:[40,40]
+
     });
 
 }else{
 
     L.popup()
-        .setLatLng([11.1271,78.6569])
-        .setContent("<b>No farmer locations available.</b><br>Please add valid latitude and longitude while registering farmers.")
-        .openOn(map);
+
+    .setLatLng([11.1271,78.6569])
+
+    .setContent("<b>No farmer locations available.</b><br>Please add valid latitude and longitude while registering farmers.")
+
+    .openOn(map);
 
 }
 

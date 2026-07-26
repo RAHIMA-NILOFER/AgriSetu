@@ -1,51 +1,47 @@
-/* =====================================================
-   AGRISETU - GOVERNMENT PORTAL
-   Version 2.0
-===================================================== */
+/*=========================================================
+                AGRISETU STYLE SHEET
+                MODERN ADMIN DASHBOARD UI
+=========================================================*/
 
-/* ===============================
-   GOOGLE FONT
-================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-/* ===============================
-   ROOT VARIABLES
-================================ */
+/*=========================================================
+ROOT VARIABLES
+=========================================================*/
 
 :root{
 
     --primary:#2E7D32;
     --primary-dark:#1B5E20;
-    --primary-light:#66BB6A;
+    --primary-light:#4CAF50;
 
-    --secondary:#0D47A1;
+    --secondary:#1565C0;
 
-    --accent:#FFC107;
-
-    --danger:#D32F2F;
-    --warning:#F9A825;
     --success:#2E7D32;
+    --warning:#F9A825;
+    --danger:#D32F2F;
 
-    --background:#F4F7F6;
+    --background:#F5F7FA;
+    --card:#FFFFFF;
 
-    --white:#FFFFFF;
+    --text:#1F2937;
+    --text-light:#6B7280;
 
-    --text:#263238;
+    --border:#E5E7EB;
 
-    --text-light:#607D8B;
+    --radius:14px;
 
-    --border:#DADADA;
+    --shadow:
+        0 8px 30px rgba(0,0,0,.06);
 
-    --shadow:0 8px 24px rgba(0,0,0,.08);
-
-    --radius:12px;
+    --shadow-hover:
+        0 18px 45px rgba(0,0,0,.12);
 
 }
 
-/* ===============================
-   GLOBAL
-================================ */
+/*=========================================================
+GLOBAL
+=========================================================*/
 
 *{
 
@@ -63,7 +59,7 @@ html{
 
 body{
 
-    font-family:'Inter',sans-serif;
+    font-family:'Poppins',sans-serif;
 
     background:var(--background);
 
@@ -71,17 +67,19 @@ body{
 
     overflow-x:hidden;
 
+    line-height:1.6;
+
 }
 
-/* ===============================
-   LINKS
-================================ */
+/*=========================================================
+LINKS
+=========================================================*/
 
 a{
 
     text-decoration:none;
 
-    transition:.3s;
+    transition:.25s;
 
 }
 
@@ -91,21 +89,39 @@ a:hover{
 
 }
 
-/* ===============================
-   HEADINGS
-================================ */
+/*=========================================================
+HEADINGS
+=========================================================*/
 
 h1,h2,h3,h4,h5,h6{
 
+    color:var(--text);
+
     font-weight:700;
 
-    color:#1F2937;
+    margin-bottom:.75rem;
 
 }
 
-/* ===============================
-   GOVERNMENT TOP BAR
-================================ */
+p{
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+CONTAINER
+=========================================================*/
+
+.container{
+
+    max-width:1320px;
+
+}
+
+/*=========================================================
+TOP BAR
+=========================================================*/
 
 .gov-topbar{
 
@@ -113,101 +129,41 @@ h1,h2,h3,h4,h5,h6{
 
     color:#fff;
 
-    padding:8px 30px;
+    padding:8px 0;
 
     font-size:14px;
 
-}
-
-.gov-logo{
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:24px;
-
-    margin-right:15px;
+    font-weight:500;
 
 }
 
-.gov-title{
+.gov-topbar i{
 
-    font-size:18px;
-
-    font-weight:700;
+    margin-right:6px;
 
 }
 
-.gov-subtitle{
-
-    opacity:.85;
-
-}
-
-.gov-info{
-
-    font-size:14px;
-
-}
-
-/* ===============================
-   PORTAL HEADER
-================================ */
+/*=========================================================
+HEADER
+=========================================================*/
 
 .portal-header{
 
     background:white;
 
-    box-shadow:var(--shadow);
+    border-bottom:1px solid var(--border);
 
-}
-
-.portal-icon{
-
-    width:80px;
-
-    height:80px;
-
-    border-radius:20px;
-
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-light)
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:42px;
-
-    color:white;
-
-    margin-right:20px;
+    padding:30px 0;
 
 }
 
 .portal-title{
 
-    font-size:36px;
+    color:var(--primary);
+
+    font-size:38px;
 
     font-weight:800;
-
-    color:var(--primary-dark);
 
 }
 
@@ -215,33 +171,53 @@ h1,h2,h3,h4,h5,h6{
 
     color:var(--text-light);
 
-    font-size:16px;
+    font-size:17px;
 
 }
 
-.admin-badge{
+.portal-icon{
 
-    display:inline-block;
+    width:90px;
 
-    background:var(--primary);
+    height:90px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     color:white;
 
-    padding:12px 24px;
-
-    border-radius:50px;
-
-    font-weight:600;
+    font-size:44px;
 
 }
 
-/* ===============================
-   NAVBAR
-================================ */
+/*=========================================================
+NAVBAR
+=========================================================*/
 
 .portal-navbar{
 
     background:var(--primary-dark);
+
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+
+}
+
+.portal-navbar .navbar-brand{
+
+    color:white;
+
+    font-weight:700;
 
 }
 
@@ -251,17 +227,25 @@ h1,h2,h3,h4,h5,h6{
 
     font-weight:600;
 
-    padding:15px 18px;
+    padding:14px 18px;
 
-    transition:.3s;
+    border-radius:8px;
+
+    transition:.25s;
 
 }
 
 .portal-navbar .nav-link:hover{
 
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.12);
 
-    border-radius:8px;
+}
+
+.portal-navbar .nav-link.active{
+
+    background:white;
+
+    color:var(--primary-dark)!important;
 
 }
 
@@ -271,21 +255,21 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-/* ===============================
-   MAIN CONTENT
-================================ */
+/*=========================================================
+MAIN CONTENT
+=========================================================*/
 
 .main-content{
 
-    min-height:70vh;
+    min-height:80vh;
 
-    padding-top:25px;
+    padding:35px 0;
 
 }
 
-/* ===============================
-   CARDS
-================================ */
+/*=========================================================
+CARDS
+=========================================================*/
 
 .card{
 
@@ -293,15 +277,21 @@ h1,h2,h3,h4,h5,h6{
 
     border-radius:var(--radius);
 
+    background:var(--card);
+
     box-shadow:var(--shadow);
 
-    transition:.3s;
+    overflow:hidden;
+
+    transition:.25s;
 
 }
 
 .card:hover{
 
     transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
 
 }
 
@@ -313,48 +303,91 @@ h1,h2,h3,h4,h5,h6{
 
     font-weight:700;
 
+    border:none;
+
+    padding:18px 22px;
+
 }
 
-/* ===============================
-   STAT CARDS
-================================ */
+.card-body{
+
+    padding:25px;
+
+}
+
+/*=========================================================
+STAT CARDS
+=========================================================*/
 
 .stat-card{
 
     background:white;
 
-    border-radius:15px;
+    border-radius:18px;
 
     padding:25px;
 
     box-shadow:var(--shadow);
 
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+
 }
 
 .stat-icon{
 
-    width:70px;
+    width:72px;
 
-    height:70px;
+    height:72px;
 
     border-radius:50%;
 
-    background:rgba(46,125,50,.12);
-
     display:flex;
-
-    align-items:center;
 
     justify-content:center;
 
+    align-items:center;
+
+    background:rgba(46,125,50,.12);
+
+    color:var(--primary);
+
     font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+.stat-number{
+
+    font-size:34px;
+
+    font-weight:800;
 
     color:var(--primary);
 
 }
-/* =====================================================
-   BUTTONS
-===================================================== */
+
+.stat-title{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+/*=========================================================
+BUTTONS
+=========================================================*/
 
 .btn{
 
@@ -362,17 +395,17 @@ h1,h2,h3,h4,h5,h6{
 
     font-weight:600;
 
-    padding:10px 20px;
+    padding:10px 22px;
 
-    transition:.3s;
+    transition:.25s;
+
+    border:none;
 
 }
 
 .btn-primary{
 
     background:var(--primary);
-
-    border:none;
 
 }
 
@@ -386,43 +419,100 @@ h1,h2,h3,h4,h5,h6{
 
 .btn-success{
 
-    background:#2E7D32;
-
-    border:none;
+    background:var(--primary);
 
 }
 
 .btn-success:hover{
 
-    background:#1B5E20;
+    background:var(--primary-dark);
 
 }
 
 .btn-warning{
 
-    color:#fff;
+    background:var(--warning);
+
+    color:white;
+
+}
+
+.btn-warning:hover{
+
+    background:#F57F17;
 
 }
 
 .btn-danger{
 
-    border:none;
+    background:var(--danger);
 
 }
 
-/* =====================================================
-   TABLES
-===================================================== */
+.btn-danger:hover{
 
-.table{
+    background:#B71C1C;
 
-    background:white;
+}
 
-    border-radius:12px;
+.btn-secondary{
+
+    background:#ECEFF1;
+
+    color:#37474F;
+
+}
+
+.btn-secondary:hover{
+
+    background:#CFD8DC;
+
+}
+
+/*=========================================================
+SECTION TITLES
+=========================================================*/
+
+.section-title{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.section-subtitle{
+
+    color:var(--text-light);
+
+    margin-bottom:35px;
+
+}
+/*=========================================================
+MODERN TABLES
+=========================================================*/
+
+.table-responsive{
+
+    border-radius:16px;
 
     overflow:hidden;
 
+    background:#fff;
+
     box-shadow:var(--shadow);
+
+}
+
+.table{
+
+    margin-bottom:0;
+
+    background:#fff;
 
 }
 
@@ -430,25 +520,23 @@ h1,h2,h3,h4,h5,h6{
 
     background:var(--primary);
 
-    color:white;
+    color:#fff;
 
 }
 
-.table th{
-
-    font-weight:700;
+.table thead th{
 
     border:none;
 
-    padding:16px;
+    padding:18px;
 
-}
+    font-size:15px;
 
-.table td{
+    font-weight:700;
 
     vertical-align:middle;
 
-    padding:14px;
+    white-space:nowrap;
 
 }
 
@@ -460,26 +548,100 @@ h1,h2,h3,h4,h5,h6{
 
 .table tbody tr:hover{
 
-    background:#F4FFF4;
+    background:#F4FBF4;
 
 }
 
-/* =====================================================
-   FORMS
-===================================================== */
+.table tbody td{
+
+    padding:16px;
+
+    vertical-align:middle;
+
+    border-color:#EEF2F7;
+
+    font-size:15px;
+
+}
+
+.table-bordered{
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+.table-striped tbody tr:nth-child(even){
+
+    background:#FAFCFD;
+
+}
+
+/*=========================================================
+SEARCH BAR
+=========================================================*/
+
+.search-box{
+
+    background:#fff;
+
+    padding:22px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:25px;
+
+}
+
+.search-box .form-control{
+
+    height:52px;
+
+}
+
+.search-box .form-select{
+
+    height:52px;
+
+}
+
+/*=========================================================
+FORM CONTROLS
+=========================================================*/
+
+.form-label{
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
 
 .form-control,
+
 .form-select{
 
-    border-radius:10px;
+    height:50px;
 
-    border:1px solid #CED4DA;
+    border-radius:12px;
 
-    padding:12px;
+    border:1px solid var(--border);
+
+    font-size:15px;
+
+    transition:.25s;
+
+    box-shadow:none;
 
 }
 
 .form-control:focus,
+
 .form-select:focus{
 
     border-color:var(--primary);
@@ -488,83 +650,354 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.form-label{
+textarea.form-control{
 
-    font-weight:600;
+    min-height:120px;
 
-    color:#37474F;
+    resize:vertical;
 
 }
 
-/* =====================================================
-   ALERTS
-===================================================== */
+.form-text{
 
-.alert{
+    color:#6B7280;
 
-    border:none;
+    font-size:13px;
 
-    border-left:5px solid var(--primary);
+}
 
-    border-radius:10px;
+.input-group-text{
+
+    border-radius:12px 0 0 12px;
+
+    background:#F5F7FA;
+
+    border-color:var(--border);
+
+}
+
+/*=========================================================
+FORM CARD
+=========================================================*/
+
+.form-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
 
     box-shadow:var(--shadow);
 
 }
 
-/* =====================================================
-   BADGES
-===================================================== */
+/*=========================================================
+PROFILE INFO
+=========================================================*/
 
-.badge{
+.profile-card{
 
-    padding:8px 12px;
+    background:#fff;
 
-    border-radius:20px;
-
-    font-weight:600;
-
-}
-
-.badge-approved{
-
-    background:#2E7D32;
-
-    color:white;
-
-}
-
-.badge-pending{
-
-    background:#F9A825;
-
-    color:white;
-
-}
-
-.badge-rejected{
-
-    background:#D32F2F;
-
-    color:white;
-
-}
-
-/* =====================================================
-   DASHBOARD WIDGETS
-===================================================== */
-
-.dashboard-widget{
-
-    background:white;
-
-    border-radius:15px;
+    border-radius:18px;
 
     padding:25px;
 
     box-shadow:var(--shadow);
 
+}
+
+.profile-card h4{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+.profile-card p{
+
+    margin-bottom:8px;
+
+}
+
+/*=========================================================
+BADGES
+=========================================================*/
+
+.badge{
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#DFF6E3;
+
+    color:#1B5E20;
+
+}
+
+.badge-warning{
+
+    background:#FFF4D4;
+
+    color:#A15C00;
+
+}
+
+.badge-danger{
+
+    background:#FFE3E3;
+
+    color:#B71C1C;
+
+}
+
+.badge-primary{
+
+    background:#E3F2FD;
+
+    color:#1565C0;
+
+}
+
+/*=========================================================
+STATUS PILLS
+=========================================================*/
+
+.status-completed{
+
+    display:inline-block;
+
+    background:#2E7D32;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status-pending{
+
+    display:inline-block;
+
+    background:#F9A825;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status-rejected{
+
+    display:inline-block;
+
+    background:#D32F2F;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+ALERTS
+=========================================================*/
+
+.alert{
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:18px 22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.alert-success{
+
+    background:#E8F5E9;
+
+    color:#1B5E20;
+
+}
+
+.alert-warning{
+
+    background:#FFF8E1;
+
+    color:#A15C00;
+
+}
+
+.alert-danger{
+
+    background:#FDECEC;
+
+    color:#B71C1C;
+
+}
+
+.alert-info{
+
+    background:#E3F2FD;
+
+    color:#1565C0;
+
+}
+
+/*=========================================================
+ACTION BUTTONS
+=========================================================*/
+
+.action-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    transition:.25s;
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.btn-view{
+
+    background:#1565C0;
+
+}
+
+.btn-edit{
+
+    background:#F9A825;
+
+}
+
+.btn-delete{
+
+    background:#D32F2F;
+
+}
+
+.btn-issue{
+
+    background:#2E7D32;
+
+}
+
+/*=========================================================
+PAGINATION
+=========================================================*/
+
+.pagination{
+
+    margin-top:25px;
+
+}
+
+.page-link{
+
+    border:none;
+
+    margin:0 4px;
+
+    border-radius:10px;
+
+    color:var(--primary);
+
+    box-shadow:var(--shadow);
+
+}
+
+.page-link:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.page-item.active .page-link{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border:none;
+
+}
+/*=========================================================
+DASHBOARD WIDGETS
+=========================================================*/
+
+.dashboard-widget{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
     margin-bottom:25px;
+
+    transition:.3s;
+
+}
+
+.dashboard-widget:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
 
 }
 
@@ -574,33 +1007,147 @@ h1,h2,h3,h4,h5,h6{
 
     font-weight:700;
 
-    margin-bottom:15px;
+    color:var(--primary);
 
-    color:var(--primary-dark);
+    margin-bottom:20px;
 
 }
 
-/* =====================================================
-   INVENTORY CARDS
-===================================================== */
+.widget-subtitle{
 
-.inventory-card{
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/*=========================================================
+QUICK ACTION CARDS
+=========================================================*/
+
+.quick-card{
 
     background:white;
 
-    border-radius:15px;
+    border-radius:18px;
 
-    padding:20px;
+    padding:30px;
+
+    text-align:center;
 
     box-shadow:var(--shadow);
 
     transition:.3s;
 
+    cursor:pointer;
+
+    height:100%;
+
+}
+
+.quick-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.quick-card i{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+.quick-card h5{
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.quick-card p{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+INVENTORY CARDS
+=========================================================*/
+
+.inventory-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+    height:100%;
+
 }
 
 .inventory-card:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.inventory-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#E8F5E9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--primary);
+
+    font-size:32px;
+
+    margin-bottom:18px;
+
+}
+
+.inventory-name{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.inventory-stock{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:var(--primary);
 
 }
 
@@ -628,9 +1175,308 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-/* =====================================================
-   MAP
-===================================================== */
+/*=========================================================
+FARMER DETAILS CARD
+=========================================================*/
+
+.farmer-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.farmer-avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.farmer-card table{
+
+    margin-bottom:0;
+
+}
+
+/*=========================================================
+HISTORY TIMELINE
+=========================================================*/
+
+.timeline{
+
+    position:relative;
+
+    padding-left:35px;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:14px;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:#E0E0E0;
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-27px;
+
+    top:8px;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+}
+
+.timeline-content{
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/*=========================================================
+EMPTY STATE
+=========================================================*/
+
+.empty-state{
+
+    text-align:center;
+
+    padding:60px 30px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.empty-state i{
+
+    font-size:70px;
+
+    color:#BDBDBD;
+
+    margin-bottom:20px;
+
+}
+
+.empty-state h4{
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+.empty-state p{
+
+    color:var(--text-light);
+
+}
+
+/*=========================================================
+MODALS
+=========================================================*/
+
+.modal-content{
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.modal-header{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+}
+
+.modal-footer{
+
+    border:none;
+
+}
+
+/*=========================================================
+LOADING SPINNER
+=========================================================*/
+
+.loader{
+
+    width:55px;
+
+    height:55px;
+
+    border:6px solid #E0E0E0;
+
+    border-top:6px solid var(--primary);
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin:auto;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================================
+SHADOW UTILITIES
+=========================================================*/
+
+.shadow-sm{
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08)!important;
+
+}
+
+.shadow-md{
+
+    box-shadow:var(--shadow)!important;
+
+}
+
+.shadow-lg{
+
+    box-shadow:var(--shadow-hover)!important;
+
+}
+
+/*=========================================================
+BORDER RADIUS UTILITIES
+=========================================================*/
+
+.rounded-xl{
+
+    border-radius:18px!important;
+
+}
+
+.rounded-xxl{
+
+    border-radius:24px!important;
+
+}
+
+/*=========================================================
+HOVER EFFECTS
+=========================================================*/
+
+.hover-up{
+
+    transition:.3s;
+
+}
+
+.hover-up:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hover-scale{
+
+    transition:.3s;
+
+}
+
+.hover-scale:hover{
+
+    transform:scale(1.03);
+
+}
+/*=========================================================
+MAP
+=========================================================*/
 
 #map{
 
@@ -638,7 +1484,7 @@ h1,h2,h3,h4,h5,h6{
 
     height:650px;
 
-    border-radius:15px;
+    border-radius:18px;
 
     overflow:hidden;
 
@@ -646,17 +1492,11 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.leaflet-popup-content{
+.map-card{
 
-    font-size:14px;
+    background:#fff;
 
-}
-
-.map-sidebar{
-
-    background:white;
-
-    border-radius:15px;
+    border-radius:18px;
 
     padding:20px;
 
@@ -664,9 +1504,209 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.map-sidebar{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.leaflet-popup-content{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:14px;
+
+}
+
+.leaflet-container{
+
+    border-radius:18px;
+
+}
+
+/*=========================================================
+LOGIN PAGE
+=========================================================*/
+
+.login-section{
+
+    min-height:80vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:460px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.login-logo{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:42px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.login-title{
+
+    text-align:center;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.login-subtitle{
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    margin-bottom:30px;
+
+}
+
+/*=========================================================
+HOME HERO
+=========================================================*/
+
+.hero{
+
+    background:linear-gradient(
+        135deg,
+        #1B5E20,
+        #43A047
+    );
+
+    color:white;
+
+    padding:80px 0;
+
+}
+
+.hero h1{
+
+    color:white;
+
+    font-size:48px;
+
+    font-weight:800;
+
+}
+
+.hero p{
+
+    color:#E8F5E9;
+
+    font-size:18px;
+
+}
+
+.hero .btn{
+
+    margin-top:20px;
+
+}
+
+/*=========================================================
+FEATURE CARDS
+=========================================================*/
+
+.feature-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.feature-card i{
+
+    font-size:42px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.feature-card h5{
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+/*=========================================================
+FOOTER
+=========================================================*/
 
 .portal-footer{
 
@@ -674,11 +1714,13 @@ h1,h2,h3,h4,h5,h6{
 
     color:white;
 
-    padding:50px 0;
+    padding:55px 0;
+
+    margin-top:60px;
 
 }
 
-.footer-title{
+.portal-footer h5{
 
     color:white;
 
@@ -686,41 +1728,45 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.footer-text{
+.portal-footer p{
 
     color:#E8F5E9;
 
 }
 
-.footer-links{
+.portal-footer ul{
 
     list-style:none;
 
-    padding-left:0;
+    padding:0;
 
 }
 
-.footer-links li{
+.portal-footer li{
 
     margin-bottom:10px;
 
 }
 
-.footer-links a{
+.portal-footer a{
 
     color:#E8F5E9;
 
+    transition:.3s;
+
 }
 
-.footer-links a:hover{
+.portal-footer a:hover{
 
     color:white;
 
+    padding-left:5px;
+
 }
 
-/* =====================================================
-   ANIMATIONS
-===================================================== */
+/*=========================================================
+ANIMATIONS
+=========================================================*/
 
 @keyframes fadeUp{
 
@@ -728,7 +1774,7 @@ h1,h2,h3,h4,h5,h6{
 
         opacity:0;
 
-        transform:translateY(20px);
+        transform:translateY(25px);
 
     }
 
@@ -748,13 +1794,67 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-/* =====================================================
-   SCROLLBAR
-===================================================== */
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.fade-in{
+
+    animation:fadeIn .7s ease;
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.zoom-in{
+
+    animation:zoomIn .5s ease;
+
+}
+
+/*=========================================================
+SCROLLBAR
+=========================================================*/
 
 ::-webkit-scrollbar{
 
     width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EEF2F7;
 
 }
 
@@ -766,47 +1866,113 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+::-webkit-scrollbar-thumb:hover{
 
-@media(max-width:992px){
+    background:var(--primary-dark);
+
+}
+
+/*=========================================================
+SPACING UTILITIES
+=========================================================*/
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mt-40{
+
+    margin-top:40px;
+
+}
+
+.mb-30{
+
+    margin-bottom:30px;
+
+}
+
+.mb-40{
+
+    margin-bottom:40px;
+
+}
+
+.py-60{
+
+    padding-top:60px;
+
+    padding-bottom:60px;
+
+}
+
+.rounded-card{
+
+    border-radius:18px;
+
+}
+
+/*=========================================================
+RESPONSIVE
+=========================================================*/
+
+@media (max-width:992px){
 
     .portal-title{
-
-        font-size:28px;
-
-    }
-
-    .portal-icon{
-
-        width:60px;
-
-        height:60px;
 
         font-size:30px;
 
     }
 
-    .gov-topbar{
+    .portal-icon{
+
+        width:75px;
+
+        height:75px;
+
+        font-size:34px;
+
+    }
+
+    .hero{
 
         text-align:center;
 
     }
 
+    .hero h1{
+
+        font-size:38px;
+
+    }
+
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
     .portal-title{
 
-        font-size:22px;
+        font-size:24px;
 
     }
 
     .portal-tagline{
 
-        font-size:13px;
+        font-size:14px;
+
+    }
+
+    .hero{
+
+        padding:60px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:30px;
 
     }
 
@@ -822,13 +1988,62 @@ h1,h2,h3,h4,h5,h6{
 
     }
 
+    .login-card{
+
+        padding:30px;
+
+    }
+
 }
+
+@media (max-width:576px){
+
+    .stat-card{
+
+        text-align:center;
+
+    }
+
+    .portal-header{
+
+        text-align:center;
+
+    }
+
+    .portal-icon{
+
+        margin:auto;
+
+        margin-bottom:20px;
+
+    }
+
+    .card-body{
+
+        padding:18px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        margin-bottom:10px;
+
+    }
+
+}
+
+/*=========================================================
+PRINT
+=========================================================*/
 
 @media print{
 
     .portal-navbar,
     .portal-footer,
-    .btn{
+    .btn,
+    .search-box{
 
         display:none !important;
 
@@ -837,6 +2052,12 @@ h1,h2,h3,h4,h5,h6{
     body{
 
         background:white;
+
+    }
+
+    .card{
+
+        box-shadow:none;
 
     }
 

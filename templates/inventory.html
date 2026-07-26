@@ -8,96 +8,127 @@ Inventory | AgriSetu
 
 <div class="container-fluid">
 
-    <!-- ========================================= -->
-    <!-- PAGE HEADER -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- PAGE HERO -->
+    <!-- ============================================= -->
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <section class="card border-0 shadow-lg overflow-hidden mb-5">
 
-        <div>
+        <div class="card-body p-0">
 
-            <h2 class="fw-bold text-success">
+            <div class="row g-0 align-items-center">
 
-                <i class="bi bi-box-seam"></i>
+                <div class="col-lg-8">
 
-                Inventory Management
+                    <div class="p-5">
 
-            </h2>
+                        <span class="badge bg-success px-3 py-2 mb-3">
 
-            <p class="text-muted">
+                            <i class="bi bi-box-seam-fill me-2"></i>
 
-                Monitor available agricultural subsidy inventory.
+                            Government Inventory Portal
 
-            </p>
+                        </span>
+
+                        <h1 class="display-5 fw-bold mb-3">
+
+                            Agricultural Inventory Management
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-4">
+
+                            Monitor agricultural subsidy inventory, analyse stock
+                            availability, identify shortages and ensure timely
+                            distribution of Government resources to eligible
+                            farmers through the AgriSetu Smart Agricultural
+                            Subsidy Management System.
+
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3">
+
+                            <a href="{{ url_for('dashboard') }}"
+                               class="btn btn-success btn-lg">
+
+                                <i class="bi bi-speedometer2 me-2"></i>
+
+                                Dashboard
+
+                            </a>
+
+                            <button class="btn btn-outline-success btn-lg" disabled>
+
+                                <i class="bi bi-box-seam-fill me-2"></i>
+
+                                Inventory Overview
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="p-5 text-center">
+
+                        <div class="rounded-circle bg-success text-white shadow mx-auto d-flex justify-content-center align-items-center"
+                             style="width:170px;height:170px;font-size:75px;">
+
+                            <i class="bi bi-box-seam-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div>
+    </section>
 
-            <a href="{{ url_for('dashboard') }}"
-               class="btn btn-success">
-
-                <i class="bi bi-speedometer2"></i>
-
-                Dashboard
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- ========================================= -->
+    <!-- ============================================= -->
     <!-- SUMMARY CARDS -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
 
-    <div class="row mb-4">
+    <div class="row g-4 mb-5">
 
-        <div class="col-lg-4 mb-3">
+        <div class="col-xl-3 col-md-6">
 
-            <div class="card shadow border-0">
+            <div class="card border-0 shadow h-100">
 
-                <div class="card-body text-center">
+                <div class="card-body">
 
-                    <i class="bi bi-box-seam display-5 text-success"></i>
+                    <div class="d-flex justify-content-between">
 
-                    <h5 class="mt-3">
+                        <div>
 
-                        Total Items
+                            <small class="text-muted">
 
-                    </h5>
+                                Total Inventory Items
 
-                    <h2>
+                            </small>
 
-                        {{ items|length }}
+                            <h2 class="fw-bold mt-2">
 
-                    </h2>
+                                {{ inventory|length }}
 
-                </div>
+                            </h2>
 
-            </div>
+                        </div>
 
-        </div>
+                        <div class="display-5 text-success">
 
-        <div class="col-lg-4 mb-3">
+                            <i class="bi bi-box-seam-fill"></i>
 
-            <div class="card shadow border-0">
+                        </div>
 
-                <div class="card-body text-center">
-
-                    <i class="bi bi-check-circle-fill display-5 text-primary"></i>
-
-                    <h5 class="mt-3">
-
-                        Healthy Stock
-
-                    </h5>
-
-                    <h2>
-
-                        {{ items|selectattr("quantity","gt",50)|list|length }}
-
-                    </h2>
+                    </div>
 
                 </div>
 
@@ -105,25 +136,113 @@ Inventory | AgriSetu
 
         </div>
 
-        <div class="col-lg-4 mb-3">
+        <div class="col-xl-3 col-md-6">
 
-            <div class="card shadow border-0">
+            <div class="card border-0 shadow h-100">
 
-                <div class="card-body text-center">
+                <div class="card-body">
 
-                    <i class="bi bi-exclamation-triangle-fill display-5 text-danger"></i>
+                    <div class="d-flex justify-content-between">
 
-                    <h5 class="mt-3">
+                        <div>
 
-                        Low Stock
+                            <small class="text-muted">
 
-                    </h5>
+                                Healthy Stock
 
-                    <h2>
+                            </small>
 
-                        {{ items|selectattr("quantity","le",20)|list|length }}
+                            <h2 class="fw-bold mt-2">
 
-                    </h2>
+                                {{ inventory|selectattr("quantity","gt",50)|list|length }}
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-primary">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                Medium Stock
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2">
+
+                                {{ inventory|selectattr("quantity","gt",20)|selectattr("quantity","le",50)|list|length }}
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-warning">
+
+                            <i class="bi bi-exclamation-circle-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <small class="text-muted">
+
+                                Low Stock
+
+                            </small>
+
+                            <h2 class="fw-bold mt-2 text-danger">
+
+                                {{ inventory|selectattr("quantity","le",20)|list|length }}
+
+                            </h2>
+
+                        </div>
+
+                        <div class="display-5 text-danger">
+
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -133,35 +252,44 @@ Inventory | AgriSetu
 
     </div>
 
-    <!-- ========================================= -->
+    <!-- ============================================= -->
     <!-- INVENTORY TABLE -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
 
-    <div class="card shadow border-0">
+    <div class="card border-0 shadow-lg">
 
-        <div class="card-header bg-success text-white">
+        <div class="card-header bg-success text-white py-3 d-flex justify-content-between align-items-center">
 
-            <i class="bi bi-box-seam"></i>
+            <h4 class="mb-0">
 
-            Available Inventory
+                <i class="bi bi-box-seam-fill me-2"></i>
+
+                Current Subsidy Inventory
+
+            </h4>
+
+            <span class="badge bg-light text-success fs-6">
+
+                {{ inventory|length }} Items
+
+            </span>
 
         </div>
 
         <div class="table-responsive">
-
-            <table class="table table-hover align-middle mb-0">
+                        <table class="table table-hover align-middle mb-0">
 
                 <thead class="table-light">
 
                     <tr>
 
-                        <th>#</th>
+                        <th style="width:80px;">#</th>
 
                         <th>Subsidy Item</th>
 
                         <th class="text-center">Available Quantity</th>
 
-                        <th class="text-center">Status</th>
+                        <th class="text-center">Stock Status</th>
 
                     </tr>
 
@@ -169,29 +297,58 @@ Inventory | AgriSetu
 
                 <tbody>
 
-                    {% for item in items %}
+                    {% for item in inventory %}
 
                     <tr>
 
                         <td>
 
-                            {{ loop.index }}
+                            <span class="badge bg-success rounded-pill">
+
+                                {{ loop.index }}
+
+                            </span>
 
                         </td>
 
                         <td>
 
-                            <strong>
+                            <div class="d-flex align-items-center">
 
-                                {{ item.item }}
+                                <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center me-3"
+                                     style="width:45px;height:45px;">
 
-                            </strong>
+                                    <i class="bi bi-box-seam-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h6 class="mb-0">
+
+                                        {{ item.item }}
+
+                                    </h6>
+
+                                    <small class="text-muted">
+
+                                        Government Subsidy Item
+
+                                    </small>
+
+                                </div>
+
+                            </div>
 
                         </td>
 
-                        <td class="text-center fw-bold">
+                        <td class="text-center">
 
-                            {{ item.quantity }}
+                            <span class="fw-bold fs-5">
+
+                                {{ item.quantity }}
+
+                            </span>
 
                         </td>
 
@@ -199,7 +356,9 @@ Inventory | AgriSetu
 
                             {% if item.quantity > 50 %}
 
-                                <span class="badge bg-success">
+                                <span class="badge bg-success px-3 py-2">
+
+                                    <i class="bi bi-check-circle-fill me-1"></i>
 
                                     In Stock
 
@@ -207,7 +366,9 @@ Inventory | AgriSetu
 
                             {% elif item.quantity > 20 %}
 
-                                <span class="badge bg-warning text-dark">
+                                <span class="badge bg-warning text-dark px-3 py-2">
+
+                                    <i class="bi bi-exclamation-circle-fill me-1"></i>
 
                                     Medium Stock
 
@@ -215,7 +376,9 @@ Inventory | AgriSetu
 
                             {% else %}
 
-                                <span class="badge bg-danger">
+                                <span class="badge bg-danger px-3 py-2">
+
+                                    <i class="bi bi-exclamation-triangle-fill me-1"></i>
 
                                     Low Stock
 
@@ -229,17 +392,26 @@ Inventory | AgriSetu
 
                     {% endfor %}
 
-                    {% if items|length == 0 %}
+                    {% if inventory|length == 0 %}
 
                     <tr>
 
                         <td colspan="4" class="text-center py-5">
 
-                            <h4 class="text-muted">
+                            <i class="bi bi-inboxes display-1 text-muted"></i>
+
+                            <h4 class="mt-3">
 
                                 No Inventory Available
 
                             </h4>
+
+                            <p class="text-muted mb-0">
+
+                                Inventory records will appear here after items
+                                are added to the subsidy management system.
+
+                            </p>
 
                         </td>
 
@@ -255,77 +427,181 @@ Inventory | AgriSetu
 
     </div>
 
-    <!-- ========================================= -->
-    <!-- INVENTORY INFORMATION -->
-    <!-- ========================================= -->
 
-    <div class="card mt-4 shadow">
 
-        <div class="card-header bg-success text-white">
+    <!-- ============================================= -->
+    <!-- INFORMATION SECTION -->
+    <!-- ============================================= -->
 
-            <i class="bi bi-info-circle-fill"></i>
+    <div class="row g-4 mt-1">
 
-            Inventory Information
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-header bg-success text-white">
+
+                    <i class="bi bi-bar-chart-fill me-2"></i>
+
+                    Stock Status Guide
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-4">
+
+                        <span class="badge bg-success mb-2">
+
+                            In Stock
+
+                        </span>
+
+                        <p class="mb-0">
+
+                            More than 50 units available for immediate
+                            distribution.
+
+                        </p>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <span class="badge bg-warning text-dark mb-2">
+
+                            Medium Stock
+
+                        </span>
+
+                        <p class="mb-0">
+
+                            Between 21 and 50 units available.
+                            Restocking should be planned.
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <span class="badge bg-danger mb-2">
+
+                            Low Stock
+
+                        </span>
+
+                        <p class="mb-0">
+
+                            20 units or fewer remain.
+                            Immediate replenishment is recommended.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="card-body">
+        <div class="col-lg-6">
 
-            <div class="row">
+            <div class="card border-0 shadow h-100">
 
-                <div class="col-md-6">
+                <div class="card-header bg-primary text-white">
 
-                    <h6 class="fw-bold">
+                    <i class="bi bi-list-check me-2"></i>
 
-                        Stock Status
-
-                    </h6>
-
-                    <ul>
-
-                        <li>
-                            <span class="badge bg-success">In Stock</span>
-                            More than 50 units available.
-                        </li>
-
-                        <li>
-                            <span class="badge bg-warning text-dark">Medium Stock</span>
-                            Between 21 and 50 units available.
-                        </li>
-
-                        <li>
-                            <span class="badge bg-danger">Low Stock</span>
-                            20 units or fewer remaining.
-                        </li>
-
-                    </ul>
+                    Available Subsidy Items
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="card-body">
 
-                    <h6 class="fw-bold">
+                    <div class="row">
 
-                        Available Subsidy Items
+                        <div class="col-6">
 
-                    </h6>
+                            <ul class="list-unstyled mb-0">
 
-                    <ul>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Rice Seeds</li>
 
-                        <li>Rice Seeds</li>
-                        <li>Wheat Seeds</li>
-                        <li>DAP Fertilizer</li>
-                        <li>Urea</li>
-                        <li>Organic Fertilizer</li>
-                        <li>Pesticide</li>
-                        <li>Sprayer</li>
-                        <li>Drip Kit</li>
-                        <li>Water Pump</li>
-                        <li>Tractor Subsidy</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Wheat Seeds</li>
 
-                    </ul>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>DAP Fertilizer</li>
+
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Urea</li>
+
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Organic Fertilizer</li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <ul class="list-unstyled mb-0">
+
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pesticide</li>
+
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sprayer</li>
+
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Drip Kit</li>
+
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Water Pump</li>
+
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tractor Subsidy</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
 
                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="alert alert-success border-0 shadow-sm mt-4">
+
+        <div class="d-flex">
+
+            <div class="me-3">
+
+                <i class="bi bi-info-circle-fill fs-2"></i>
+
+            </div>
+
+            <div>
+
+                <h5 class="fw-bold">
+
+                    Government Inventory Advisory
+
+                </h5>
+
+                <p class="mb-2">
+
+                    Inventory levels should be monitored regularly to ensure
+                    uninterrupted subsidy distribution. Low-stock items should
+                    be replenished promptly to avoid delays in farmer assistance.
+
+                </p>
+
+                <small class="text-muted">
+
+                    AgriSetu securely maintains inventory records and supports
+                    transparent agricultural subsidy management.
+
+                </small>
 
             </div>
 

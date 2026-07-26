@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container py-4">
 
     <div class="row justify-content-center">
 
@@ -13,83 +13,65 @@
                 <div class="card-header bg-success text-white">
 
                     <h3 class="mb-0">
-
+                        <i class="bi bi-gift-fill"></i>
                         Issue Subsidy
-
                     </h3>
 
                 </div>
 
                 <div class="card-body">
 
-                    <!-- Farmer Information -->
+                    <!-- Farmer Details -->
 
                     <div class="row mb-4">
 
                         <div class="col-md-6">
 
-                            <h5 class="text-success">
-
+                            <h4 class="text-success fw-bold">
                                 {{ farmer.name }}
+                            </h4>
 
-                            </h5>
-
-                            <p class="mb-1">
-
-                                <strong>Village:</strong>
-
+                            <p>
+                                <strong>Village :</strong>
                                 {{ farmer.village }}
-
                             </p>
 
-                            <p class="mb-1">
-
-                                <strong>District:</strong>
-
+                            <p>
+                                <strong>District :</strong>
                                 {{ farmer.district }}
-
                             </p>
 
-                            <p class="mb-0">
-
-                                <strong>Crop:</strong>
-
+                            <p>
+                                <strong>Crop :</strong>
                                 {{ farmer.crop }}
+                            </p>
 
+                            <p>
+                                <strong>Subsidy :</strong>
+                                {{ farmer.subsidy }}
                             </p>
 
                         </div>
 
                         <div class="col-md-6">
 
-                            <table class="table table-bordered">
+                            <table class="table table-bordered text-center">
 
                                 <tr>
-
                                     <th>Eligible</th>
-
                                     <td>{{ farmer.eligible }}</td>
-
                                 </tr>
 
                                 <tr>
-
                                     <th>Issued</th>
-
                                     <td>{{ farmer.issued }}</td>
-
                                 </tr>
 
                                 <tr>
-
                                     <th>Balance</th>
-
-                                    <td class="fw-bold text-danger">
-
+                                    <td class="text-danger fw-bold">
                                         {{ farmer.balance }}
-
                                     </td>
-
                                 </tr>
 
                             </table>
@@ -102,45 +84,74 @@
 
                     <form method="POST">
 
-                        <div class="mb-4">
+                        <!-- Subsidy Item -->
 
-                            <label class="form-label">
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Select Subsidy Item
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                name="item"
+                                required>
+
+                                <option value="">
+                                    -- Select Item --
+                                </option>
+
+                                {% for i in inventory %}
+
+                                <option value="{{ i.item }}">
+
+                                    {{ i.item }}
+                                    (Available : {{ i.quantity }})
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+                        <!-- Quantity -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
 
                                 Quantity to Issue
 
                             </label>
 
                             <input
-
                                 type="number"
-
-                                name="quantity"
-
-                                min="1"
-
-                                max="{{ farmer.balance }}"
-
                                 class="form-control"
-
-                                placeholder="Enter Quantity"
-
+                                name="quantity"
+                                min="1"
+                                max="{{ farmer.balance }}"
                                 required>
 
-                            <div class="form-text">
+                            <small class="text-muted">
 
-                                Maximum quantity allowed:
-
+                                Maximum allowed :
                                 {{ farmer.balance }}
 
-                            </div>
+                            </small>
 
                         </div>
 
+                        <!-- Buttons -->
+
                         <div class="d-flex justify-content-between">
 
-                            <a href="{{ url_for('farmer_details', id=farmer.id) }}"
-
-                               class="btn btn-secondary">
+                            <a
+                                href="{{ url_for('farmer_details', id=farmer.id) }}"
+                                class="btn btn-secondary">
 
                                 <i class="bi bi-arrow-left"></i>
 
@@ -149,9 +160,7 @@
                             </a>
 
                             <button
-
                                 type="submit"
-
                                 class="btn btn-success">
 
                                 <i class="bi bi-check-circle-fill"></i>
@@ -168,7 +177,7 @@
 
                     <div class="alert alert-success">
 
-                        <h5>
+                        <h5 class="mb-2">
 
                             Subsidy Already Completed
 
@@ -182,9 +191,9 @@
 
                     </div>
 
-                    <a href="{{ url_for('farmer_details', id=farmer.id) }}"
-
-                       class="btn btn-secondary">
+                    <a
+                        href="{{ url_for('farmer_details', id=farmer.id) }}"
+                        class="btn btn-secondary">
 
                         Back
 

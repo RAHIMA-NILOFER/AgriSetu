@@ -4,289 +4,960 @@
 
 {% block content %}
 
-<div class="container mt-4">
+<div class="container-fluid">
 
-    <div class="card shadow">
+    <!-- ============================================= -->
+    <!-- PAGE HERO -->
+    <!-- ============================================= -->
 
-        <div class="card-header bg-success text-white">
+    <section class="card border-0 shadow-lg overflow-hidden mb-5">
 
-            <h3 class="mb-0">
-                Register New Farmer
-            </h3>
+        <div class="card-body p-0">
+
+            <div class="row g-0 align-items-center">
+
+                <!-- Left Side -->
+
+                <div class="col-lg-8">
+
+                    <div class="p-5">
+
+                        <span class="badge bg-success px-3 py-2 mb-3">
+
+                            <i class="bi bi-shield-check me-2"></i>
+
+                            Government Registration Portal
+
+                        </span>
+
+                        <h1 class="fw-bold display-5 mb-3">
+
+                            Register New Farmer
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-4">
+
+                            Create a secure digital farmer profile for subsidy
+                            eligibility, GIS monitoring, inventory allocation
+                            and Government welfare schemes through the
+                            AgriSetu Smart Agricultural Subsidy Management System.
+
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3">
+
+                            <a href="{{ url_for('farmers') }}"
+                               class="btn btn-outline-success btn-lg">
+
+                                <i class="bi bi-arrow-left me-2"></i>
+
+                                Back to Registry
+
+                            </a>
+
+                            <button type="button"
+                                    class="btn btn-success btn-lg"
+                                    disabled>
+
+                                <i class="bi bi-person-plus-fill me-2"></i>
+
+                                New Registration
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Side -->
+
+                <div class="col-lg-4">
+
+                    <div class="p-5 text-center">
+
+                        <div class="rounded-circle bg-success text-white shadow mx-auto d-flex justify-content-center align-items-center"
+                             style="width:170px;height:170px;font-size:75px;">
+
+                            <i class="bi bi-person-plus-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="card-body">
+    </section>
 
-            <form method="POST">
 
-                <div class="row">
 
-                    <div class="col-md-6 mb-3">
+    <!-- ============================================= -->
+    <!-- REGISTRATION PROGRESS -->
+    <!-- ============================================= -->
 
-                        <label class="form-label">
-                            Full Name
-                        </label>
+    <div class="row g-4 mb-5">
 
-                        <input
-                            type="text"
-                            name="name"
-                            class="form-control"
-                            required>
+        <div class="col-lg-3 col-md-6">
 
-                    </div>
+            <div class="card border-0 shadow text-center">
 
-                    <div class="col-md-6 mb-3">
+                <div class="card-body">
 
-                        <label class="form-label">
-                            Mobile Number
-                        </label>
+                    <div class="display-6 text-success">
 
-                        <input
-                            type="text"
-                            name="mobile"
-                            class="form-control"
-                            required>
+                        <i class="bi bi-person-vcard-fill"></i>
 
                     </div>
 
-                    <div class="col-md-3 mb-3">
+                    <h6 class="mt-3 mb-1">
 
-                        <label class="form-label">
-                            Age
-                        </label>
+                        Personal Details
 
-                        <input
-                            type="number"
-                            name="age"
-                            class="form-control"
-                            required>
+                    </h6>
 
-                    </div>
+                    <small class="text-muted">
 
-                    <div class="col-md-3 mb-3">
+                        Step 1
 
-                        <label class="form-label">
-                            Gender
-                        </label>
-
-                        <select
-                            name="gender"
-                            class="form-select"
-                            required>
-
-                            <option value="">Select</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Aadhaar Number
-                        </label>
-
-                        <input
-                            type="text"
-                            name="aadhaar"
-                            class="form-control">
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Village
-                        </label>
-
-                        <input
-                            type="text"
-                            name="village"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            District
-                        </label>
-
-                        <input
-                            type="text"
-                            name="district"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Land Area (Acres)
-                        </label>
-
-                        <input
-                            type="number"
-                            step="0.01"
-                            name="land"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Crop
-                        </label>
-
-                        <input
-                            type="text"
-                            name="crop"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-    <label class="form-label">
-        Subsidy Type
-    </label>
-
-    <select
-        name="subsidy"
-        class="form-select"
-        required>
-
-        <option value="">Select Subsidy</option>
-
-        <option value="Rice Seeds">Rice Seeds</option>
-        <option value="Wheat Seeds">Wheat Seeds</option>
-        <option value="DAP Fertilizer">DAP Fertilizer</option>
-        <option value="Urea">Urea</option>
-        <option value="Organic Fertilizer">Organic Fertilizer</option>
-        <option value="Pesticide">Pesticide</option>
-        <option value="Sprayer">Sprayer</option>
-        <option value="Drip Kit">Drip Kit</option>
-        <option value="Water Pump">Water Pump</option>
-        <option value="Tractor Subsidy">Tractor Subsidy</option>
-
-    </select>
-
-</div>
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Eligible Quantity
-                        </label>
-
-                        <input
-                            type="number"
-                            name="eligible"
-                            class="form-control"
-                            required>
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Latitude
-                        </label>
-
-                        <input
-                            type="text"
-                            name="latitude"
-                            class="form-control">
-
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-                            Longitude
-                        </label>
-
-                        <input
-                            type="text"
-                            name="longitude"
-                            class="form-control">
-
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-
-                        <label class="form-label">
-                            Bank Name
-                        </label>
-
-                        <input
-                            type="text"
-                            name="bank"
-                            class="form-control">
-
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-
-                        <label class="form-label">
-                            Account Number
-                        </label>
-
-                        <input
-                            type="text"
-                            name="account"
-                            class="form-control">
-
-                    </div>
-
-                    <div class="col-md-4 mb-3">
-
-                        <label class="form-label">
-                            IFSC Code
-                        </label>
-
-                        <input
-                            type="text"
-                            name="ifsc"
-                            class="form-control">
-
-                    </div>
+                    </small>
 
                 </div>
 
-                <div class="mt-4">
+            </div>
 
-                    <button
-                        type="submit"
-                        class="btn btn-success">
+        </div>
 
-                        Register Farmer
+        <div class="col-lg-3 col-md-6">
 
-                    </button>
+            <div class="card border-0 shadow text-center">
 
-                    <a
-                        href="{{ url_for('farmers') }}"
-                        class="btn btn-secondary">
+                <div class="card-body">
 
-                        Cancel
+                    <div class="display-6 text-primary">
 
-                    </a>
+                        <i class="bi bi-tree-fill"></i>
+
+                    </div>
+
+                    <h6 class="mt-3 mb-1">
+
+                        Agricultural Info
+
+                    </h6>
+
+                    <small class="text-muted">
+
+                        Step 2
+
+                    </small>
 
                 </div>
 
-            </form>
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card border-0 shadow text-center">
+
+                <div class="card-body">
+
+                    <div class="display-6 text-warning">
+
+                        <i class="bi bi-bank2"></i>
+
+                    </div>
+
+                    <h6 class="mt-3 mb-1">
+
+                        Bank Details
+
+                    </h6>
+
+                    <small class="text-muted">
+
+                        Step 3
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card border-0 shadow text-center">
+
+                <div class="card-body">
+
+                    <div class="display-6 text-danger">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                    </div>
+
+                    <h6 class="mt-3 mb-1">
+
+                        Verification
+
+                    </h6>
+
+                    <small class="text-muted">
+
+                        Step 4
+
+                    </small>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
+
+
+
+    <!-- ============================================= -->
+    <!-- REGISTRATION FORM -->
+    <!-- ============================================= -->
+
+    <div class="card border-0 shadow-lg">
+
+        <div class="card-header bg-success text-white py-3">
+
+            <h3 class="mb-0">
+
+                <i class="bi bi-file-earmark-person-fill me-2"></i>
+
+                Farmer Registration Form
+
+            </h3>
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <form method="POST">
+<!-- ============================================= -->
+<!-- PERSONAL INFORMATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 bg-light mb-4">
+
+    <div class="card-header bg-white border-0 py-3">
+
+        <h4 class="mb-0 text-success">
+
+            <i class="bi bi-person-vcard-fill me-2"></i>
+
+            Personal Information
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <label class="form-label fw-semibold">
+
+                    Full Name
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-person-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        placeholder="Enter farmer's full name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+                <label class="form-label fw-semibold">
+
+                    Mobile Number
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="mobile"
+                        class="form-control"
+                        placeholder="10-digit mobile number"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <label class="form-label fw-semibold">
+
+                    Age
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-calendar-event-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="number"
+                        name="age"
+                        class="form-control"
+                        placeholder="Age"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <label class="form-label fw-semibold">
+
+                    Gender
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-gender-ambiguous"></i>
+
+                    </span>
+
+                    <select
+                        name="gender"
+                        class="form-select"
+                        required>
+
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Aadhaar Number
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-credit-card-2-front-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="aadhaar"
+                        class="form-control"
+                        placeholder="XXXX XXXX XXXX">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- ADDRESS INFORMATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 bg-light mb-4">
+
+    <div class="card-header bg-white border-0 py-3">
+
+        <h4 class="mb-0 text-primary">
+
+            <i class="bi bi-geo-alt-fill me-2"></i>
+
+            Address Information
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <label class="form-label fw-semibold">
+
+                    Village
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-house-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="village"
+                        class="form-control"
+                        placeholder="Village name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+                <label class="form-label fw-semibold">
+
+                    District
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-building"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="district"
+                        class="form-control"
+                        placeholder="District"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- AGRICULTURAL INFORMATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 bg-light mb-4">
+
+    <div class="card-header bg-white border-0 py-3">
+
+        <h4 class="mb-0 text-success">
+
+            <i class="bi bi-tree-fill me-2"></i>
+
+            Agricultural Information
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Land Area (Acres)
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-grid-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="land"
+                        class="form-control"
+                        placeholder="Land area"
+                        required>
+
+                </div>
+
+            </div>
+           
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Crop
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-flower1"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="crop"
+                        class="form-control"
+                        placeholder="Enter primary crop"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Subsidy Type
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-gift-fill"></i>
+
+                    </span>
+
+                    <select
+                        name="subsidy"
+                        class="form-select"
+                        required>
+
+                        <option value="">Select Subsidy</option>
+
+                        <option value="Rice Seeds">Rice Seeds</option>
+                        <option value="Wheat Seeds">Wheat Seeds</option>
+                        <option value="DAP Fertilizer">DAP Fertilizer</option>
+                        <option value="Urea">Urea</option>
+                        <option value="Organic Fertilizer">Organic Fertilizer</option>
+                        <option value="Pesticide">Pesticide</option>
+                        <option value="Sprayer">Sprayer</option>
+                        <option value="Drip Kit">Drip Kit</option>
+                        <option value="Water Pump">Water Pump</option>
+                        <option value="Tractor Subsidy">Tractor Subsidy</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Eligible Quantity
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-box-seam-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="number"
+                        name="eligible"
+                        class="form-control"
+                        placeholder="Eligible quantity"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- GIS INFORMATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 bg-light mb-4">
+
+    <div class="card-header bg-white border-0 py-3">
+
+        <h4 class="mb-0 text-danger">
+
+            <i class="bi bi-geo-alt-fill me-2"></i>
+
+            GIS Location Information
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Latitude
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-compass-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="latitude"
+                        class="form-control"
+                        placeholder="e.g. 13.0827">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+                <label class="form-label fw-semibold">
+
+                    Longitude
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-compass"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="longitude"
+                        class="form-control"
+                        placeholder="e.g. 80.2707">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- BANK INFORMATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 bg-light mb-4">
+
+    <div class="card-header bg-white border-0 py-3">
+
+        <h4 class="mb-0 text-primary">
+
+            <i class="bi bi-bank2 me-2"></i>
+
+            Bank Information
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-4">
+                        <div class="col-md-4">
+
+                <label class="form-label fw-semibold">
+
+                    Bank Name
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-bank"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="bank"
+                        class="form-control"
+                        placeholder="Enter bank name">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4">
+
+                <label class="form-label fw-semibold">
+
+                    Account Number
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-credit-card-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="account"
+                        class="form-control"
+                        placeholder="Enter account number">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4">
+
+                <label class="form-label fw-semibold">
+
+                    IFSC Code
+
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="ifsc"
+                        class="form-control"
+                        placeholder="Enter IFSC code">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- GOVERNMENT NOTICE -->
+<!-- ============================================= -->
+
+<div class="alert alert-success border-0 shadow-sm mb-4">
+
+    <div class="d-flex">
+
+        <div class="me-3">
+
+            <i class="bi bi-info-circle-fill fs-2"></i>
+
+        </div>
+
+        <div>
+
+            <h5 class="fw-bold">
+
+                Government Advisory
+
+            </h5>
+
+            <p class="mb-2">
+
+                Ensure that all farmer information is verified before
+                completing registration. Aadhaar details, land ownership,
+                bank information and subsidy eligibility should be validated
+                according to Government regulations.
+
+            </p>
+
+            <small class="text-muted">
+
+                AgriSetu maintains secure digital records for farmer
+                registration, inventory management, GIS monitoring and
+                subsidy distribution.
+
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================= -->
+<!-- ACTION BUTTONS -->
+<!-- ============================================= -->
+
+<div class="card border-0 shadow-lg">
+
+    <div class="card-body">
+
+        <div class="row g-3">
+
+            <div class="col-lg-6">
+
+                <button
+                    type="submit"
+                    class="btn btn-success btn-lg w-100">
+
+                    <i class="bi bi-person-plus-fill me-2"></i>
+
+                    Register Farmer
+
+                </button>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <a href="{{ url_for('farmers') }}"
+                   class="btn btn-outline-secondary btn-lg w-100">
+
+                    <i class="bi bi-arrow-left me-2"></i>
+
+                    Cancel Registration
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
 
 </div>
 

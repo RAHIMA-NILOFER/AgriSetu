@@ -2,118 +2,340 @@
 
 {% block content %}
 
-<div class="row justify-content-center">
+<div class="container-fluid">
 
-    <div class="col-lg-5 col-md-7">
+    <!-- ============================================= -->
+    <!-- LOGIN HERO -->
+    <!-- ============================================= -->
 
-        <div class="card shadow-lg border-0 mt-5">
+    <section class="card border-0 shadow-lg overflow-hidden mt-4 mb-5">
 
-            <div class="card-body p-5">
+        <div class="card-body p-0">
 
-                <div class="text-center mb-4">
+            <div class="row g-0 align-items-center">
 
-                    <i class="bi bi-person-circle text-success"
-                        style="font-size:70px;"></i>
+                <!-- Left -->
 
-                    <h2 class="fw-bold mt-3">
+                <div class="col-lg-7">
 
-                        Admin Login
+                    <div class="p-5">
 
-                    </h2>
+                        <span class="badge bg-success px-3 py-2 mb-3">
 
-                    <p class="text-muted">
+                            <i class="bi bi-shield-lock-fill me-2"></i>
 
-                        AgriSetu Management Portal
+                            Government Secure Portal
 
-                    </p>
+                        </span>
+
+                        <h1 class="display-5 fw-bold mb-3">
+
+                            Welcome to AgriSetu
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-4">
+
+                            Securely access the AgriSetu Smart Agricultural
+                            Subsidy Management System to manage farmer
+                            registrations, subsidy distribution, inventory,
+                            GIS monitoring and Government welfare services.
+
+                        </p>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <div class="card border-0 bg-light">
+
+                                    <div class="card-body text-center">
+
+                                        <i class="bi bi-people-fill display-6 text-success"></i>
+
+                                        <h6 class="mt-3">
+
+                                            Farmer Management
+
+                                        </h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card border-0 bg-light">
+
+                                    <div class="card-body text-center">
+
+                                        <i class="bi bi-box-seam-fill display-6 text-primary"></i>
+
+                                        <h6 class="mt-3">
+
+                                            Inventory Control
+
+                                        </h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card border-0 bg-light">
+
+                                    <div class="card-body text-center">
+
+                                        <i class="bi bi-geo-alt-fill display-6 text-danger"></i>
+
+                                        <h6 class="mt-3">
+
+                                            GIS Monitoring
+
+                                        </h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card border-0 bg-light">
+
+                                    <div class="card-body text-center">
+
+                                        <i class="bi bi-journal-check display-6 text-warning"></i>
+
+                                        <h6 class="mt-3">
+
+                                            Digital Records
+
+                                        </h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <form method="POST">
+                <!-- Right -->
 
-                    <div class="mb-3">
+                <div class="col-lg-5">
 
-                        <label class="form-label">
+                    <div class="p-5">
 
-                            Username
+                        <div class="text-center mb-4">
 
-                        </label>
+                            <div class="rounded-circle bg-success text-white shadow mx-auto d-flex justify-content-center align-items-center"
+                                 style="width:130px;height:130px;font-size:60px;">
 
-                        <input
+                                <i class="bi bi-person-lock"></i>
 
-                            type="text"
+                            </div>
 
-                            name="username"
+                            <h2 class="fw-bold mt-4">
 
-                            class="form-control"
+                                Administrator Login
 
-                            placeholder="Enter Username"
+                            </h2>
 
-                            required>
+                            <p class="text-muted">
+
+                                Sign in to continue
+
+                            </p>
+
+                        </div>
+
+                        <form method="POST">
+                                                        <div class="mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Username
+
+                                </label>
+
+                                <div class="input-group input-group-lg">
+
+                                    <span class="input-group-text bg-success text-white">
+
+                                        <i class="bi bi-person-fill"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        class="form-control"
+                                        placeholder="Enter Username"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Password
+
+                                </label>
+
+                                <div class="input-group input-group-lg">
+
+                                    <span class="input-group-text bg-success text-white">
+
+                                        <i class="bi bi-lock-fill"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        class="form-control"
+                                        placeholder="Enter Password"
+                                        required>
+
+                                    <button
+                                        class="btn btn-outline-secondary"
+                                        type="button"
+                                        onclick="togglePassword()">
+
+                                        <i class="bi bi-eye" id="eyeIcon"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-grid mb-4">
+
+                                <button class="btn btn-success btn-lg">
+
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>
+
+                                    Secure Login
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <div class="alert alert-light border">
+
+                            <div class="d-flex">
+
+                                <div class="me-3">
+
+                                    <i class="bi bi-shield-lock-fill text-success fs-3"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>Secure Access</strong>
+
+                                    <p class="mb-0 small">
+
+                                        This portal is restricted to authorised
+                                        Government administrators only. All
+                                        login activities are monitored.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card bg-light border-0 mt-4">
+
+                            <div class="card-body text-center">
+
+                                <h6 class="fw-bold mb-3">
+
+                                    Demo Credentials
+
+                                </h6>
+
+                                <span class="badge bg-success me-2">
+
+                                    Username : admin
+
+                                </span>
+
+                                <span class="badge bg-dark">
+
+                                    Password : admin123
+
+                                </span>
+
+                            </div>
+
+                        </div>
 
                     </div>
-
-                    <div class="mb-4">
-
-                        <label class="form-label">
-
-                            Password
-
-                        </label>
-
-                        <input
-
-                            type="password"
-
-                            name="password"
-
-                            class="form-control"
-
-                            placeholder="Enter Password"
-
-                            required>
-
-                    </div>
-
-                    <div class="d-grid">
-
-                        <button class="btn btn-success btn-lg">
-
-                            <i class="bi bi-box-arrow-in-right"></i>
-
-                            Login
-
-                        </button>
-
-                    </div>
-
-                </form>
-
-                <hr>
-
-                <div class="text-center">
-
-                    <small class="text-muted">
-
-                        Demo Credentials
-
-                    </small>
-
-                    <br>
-
-                    <span class="badge bg-success">
-
-                        Username : admin
-
-                    </span>
-
-                    <span class="badge bg-dark">
-
-                        Password : admin123
-
-                    </span>
 
                 </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="alert alert-success border-0 shadow-sm">
+
+        <div class="d-flex">
+
+            <div class="me-3">
+
+                <i class="bi bi-building-check fs-2"></i>
+
+            </div>
+
+            <div>
+
+                <h5 class="fw-bold">
+
+                    Government Portal Notice
+
+                </h5>
+
+                <p class="mb-2">
+
+                    AgriSetu is an integrated agricultural subsidy management
+                    system developed to streamline farmer registration,
+                    inventory management, subsidy distribution and GIS-based
+                    monitoring.
+
+                </p>
+
+                <small class="text-muted">
+
+                    © Government Agricultural Welfare Department.
+                    All rights reserved.
+
+                </small>
 
             </div>
 
@@ -122,5 +344,32 @@
     </div>
 
 </div>
+
+<script>
+
+function togglePassword(){
+
+    const password=document.getElementById("password");
+    const eye=document.getElementById("eyeIcon");
+
+    if(password.type==="password"){
+
+        password.type="text";
+
+        eye.classList.remove("bi-eye");
+        eye.classList.add("bi-eye-slash");
+
+    }else{
+
+        password.type="password";
+
+        eye.classList.remove("bi-eye-slash");
+        eye.classList.add("bi-eye");
+
+    }
+
+}
+
+</script>
 
 {% endblock %}

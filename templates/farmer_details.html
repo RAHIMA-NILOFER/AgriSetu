@@ -8,109 +8,94 @@ Farmer Details | AgriSetu
 
 <div class="container-fluid">
 
-    <!-- ========================================= -->
-    <!-- PAGE HEADER -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- PAGE HERO -->
+    <!-- ============================================= -->
 
-    <div class="row mb-4">
+    <section class="card border-0 shadow-lg overflow-hidden mb-5">
 
-        <div class="col-lg-8">
+        <div class="card-body p-0">
 
-            <h2 class="fw-bold text-success">
+            <div class="row g-0 align-items-center">
 
-                <i class="bi bi-person-badge-fill"></i>
+                <!-- Left -->
 
-                Farmer Profile
+                <div class="col-lg-8">
 
-            </h2>
+                    <div class="p-5">
 
-            <p class="text-muted">
+                        <span class="badge bg-success mb-3 px-3 py-2">
 
-                View complete farmer registration and subsidy details.
+                            <i class="bi bi-shield-check me-2"></i>
 
-            </p>
+                            Verified Farmer Record
 
-        </div>
+                        </span>
 
-        <div class="col-lg-4 text-end">
+                        <h1 class="fw-bold display-6 mb-3">
 
-            <a href="{{ url_for('farmers') }}"
-               class="btn btn-outline-success">
+                            Farmer Profile
 
-                <i class="bi bi-arrow-left"></i>
+                        </h1>
 
-                Back to Registry
+                        <p class="text-muted fs-5 mb-4">
 
-            </a>
+                            Complete digital identity, agricultural information,
+                            subsidy eligibility and GIS records maintained by
+                            the AgriSetu Smart Agricultural Subsidy Management System.
 
-        </div>
+                        </p>
 
-    </div>
+                        <div class="d-flex flex-wrap gap-3">
 
-    <!-- ========================================= -->
-    <!-- PROFILE CARD -->
-    <!-- ========================================= -->
+                            <a href="{{ url_for('farmers') }}"
+                               class="btn btn-outline-success btn-lg">
 
-    <div class="card shadow mb-4">
+                                <i class="bi bi-arrow-left me-2"></i>
 
-        <div class="card-body">
+                                Back to Registry
 
-            <div class="row align-items-center">
+                            </a>
 
-                <div class="col-lg-2 text-center">
+                            <a href="{{ url_for('edit_farmer', id=farmer.id) }}"
+                               class="btn btn-warning text-white btn-lg">
 
-                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center mx-auto"
-                         style="width:120px;height:120px;font-size:50px;">
+                                <i class="bi bi-pencil-fill me-2"></i>
 
-                        👨‍🌾
+                                Edit Profile
+
+                            </a>
+
+                            <a href="{{ url_for('issue', id=farmer.id) }}"
+                               class="btn btn-success btn-lg">
+
+                                <i class="bi bi-gift-fill me-2"></i>
+
+                                Issue Subsidy
+
+                            </a>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-                <div class="col-lg-7">
+                <!-- Right -->
 
-                    <h2 class="fw-bold">
+                <div class="col-lg-4 text-center">
 
-                        {{ farmer.name }}
+                    <div class="p-5">
 
-                    </h2>
+                        <div class="rounded-circle bg-success text-white mx-auto d-flex justify-content-center align-items-center shadow"
 
-                    <p class="text-muted">
+                             style="width:170px;height:170px;font-size:75px;">
 
-                        Registered Farmer
+                            <i class="bi bi-person-fill"></i>
 
-                    </p>
+                        </div>
 
-                    <span class="badge bg-success">
-
-                        Active
-
-                    </span>
-
-                </div>
-
-                <div class="col-lg-3 text-end">
-
-                    <a href="{{ url_for('edit_farmer', id=farmer.id) }}"
-                       class="btn btn-warning text-white mb-2">
-
-                        <i class="bi bi-pencil-fill"></i>
-
-                        Edit
-
-                    </a>
-
-                    <br>
-
-                    <a href="{{ url_for('issue', id=farmer.id) }}"
-                       class="btn btn-success">
-
-                        <i class="bi bi-gift-fill"></i>
-
-                        Issue Subsidy
-
-                    </a>
+                    </div>
 
                 </div>
 
@@ -118,242 +103,135 @@ Farmer Details | AgriSetu
 
         </div>
 
-    </div>
+    </section>
 
-    <!-- ========================================= -->
-    <!-- BASIC INFORMATION -->
-    <!-- ========================================= -->
 
-    <div class="row">
 
-        <div class="col-lg-6 mb-4">
+    <!-- ============================================= -->
+    <!-- PROFILE OVERVIEW -->
+    <!-- ============================================= -->
 
-            <div class="card">
+    <div class="card border-0 shadow-lg mb-5">
 
-                <div class="card-header">
+        <div class="card-body">
 
-                    Personal Information
+            <div class="row align-items-center">
 
-                </div>
+                <div class="col-lg-8">
 
-                <div class="card-body">
+                    <div class="d-flex align-items-center">
 
-                    <table class="table table-borderless">
+                        <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center me-4"
 
-                        <tr>
+                             style="width:90px;height:90px;font-size:35px;">
 
-                            <th>Farmer ID</th>
+                            <i class="bi bi-person-fill"></i>
 
-                            <td>{{ farmer.id }}</td>
+                        </div>
 
-                        </tr>
+                        <div>
 
-                        <tr>
+                            <h2 class="fw-bold mb-1">
 
-                            <th>Name</th>
+                                {{ farmer.name }}
 
-                            <td>{{ farmer.name }}</td>
+                            </h2>
 
-                        </tr>
+                            <p class="text-muted mb-2">
 
-                        <tr>
+                                Registered Agricultural Beneficiary
 
-                            <th>Age</th>
+                            </p>
 
-                            <td>{{ farmer.age }}</td>
+                            <div class="d-flex flex-wrap gap-2">
 
-                        </tr>
+                                <span class="badge bg-success px-3 py-2">
 
-                        <tr>
-
-                            <th>Gender</th>
-
-                            <td>{{ farmer.gender }}</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Phone</th>
-
-                            <td>{{ farmer.phone }}</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>District</th>
-
-                            <td>{{ farmer.district }}</td>
-
-                        </tr>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-lg-6 mb-4">
-
-            <div class="card">
-
-                <div class="card-header">
-
-                    Agricultural Information
-
-                </div>
-
-                <div class="card-body">
-
-                    <table class="table table-borderless">
-
-                        <tr>
-
-                            <th>Crop</th>
-
-                            <td>{{ farmer.crop }}</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Land Area</th>
-
-                            <td>{{ farmer.land }} Acres</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Subsidy Status</th>
-
-                            <td>
-
-                                <span class="badge bg-success">
-
-                                    Eligible
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Registration</th>
-
-                            <td>Verified</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Last Updated</th>
-
-                            <td>Today</td>
-
-                        </tr>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-        <!-- ========================================= -->
-    <!-- SUBSIDY ELIGIBILITY -->
-    <!-- ========================================= -->
-
-    <div class="row">
-
-        <div class="col-lg-6 mb-4">
-
-            <div class="card">
-
-                <div class="card-header">
-
-                    <i class="bi bi-award-fill"></i>
-
-                    Subsidy Eligibility
-
-                </div>
-
-                <div class="card-body">
-
-                    <table class="table table-borderless">
-
-                        <tr>
-
-                            <th>Seed Subsidy</th>
-
-                            <td>
-
-                                <span class="badge bg-success">
-
-                                    Eligible
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Fertilizer Subsidy</th>
-
-                            <td>
-
-                                <span class="badge bg-success">
-
-                                    Eligible
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Equipment Assistance</th>
-
-                            <td>
-
-                                <span class="badge bg-warning text-dark">
-
-                                    Pending
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>Crop Insurance</th>
-
-                            <td>
-
-                                <span class="badge bg-success">
+                                    <i class="bi bi-check-circle-fill me-1"></i>
 
                                     Active
 
                                 </span>
 
-                            </td>
+                                <span class="badge bg-primary px-3 py-2">
 
-                        </tr>
+                                    Farmer ID #{{ farmer.id }}
 
-                    </table>
+                                </span>
+
+                                <span class="badge bg-secondary px-3 py-2">
+
+                                    {{ farmer.district }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4">
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+
+                            <div class="card bg-light border-0">
+
+                                <div class="card-body text-center">
+
+                                    <i class="bi bi-tree-fill text-success fs-3"></i>
+
+                                    <h5 class="mt-2 mb-1">
+
+                                        {{ farmer.crop }}
+
+                                    </h5>
+
+                                    <small class="text-muted">
+
+                                        Primary Crop
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="card bg-light border-0">
+
+                                <div class="card-body text-center">
+
+                                    <i class="bi bi-award-fill text-warning fs-3"></i>
+
+                                    <h5 class="mt-2 mb-1">
+
+                                        {{ farmer.status }}
+
+                                    </h5>
+
+                                    <small class="text-muted">
+
+                                        Subsidy Status
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -361,64 +239,773 @@ Farmer Details | AgriSetu
 
         </div>
 
-        <!-- ========================================= -->
-        <!-- GIS INFORMATION -->
-        <!-- ========================================= -->
+    </div>
 
-        <div class="col-lg-6 mb-4">
 
-            <div class="card">
 
-                <div class="card-header">
+    <!-- ============================================= -->
+    <!-- QUICK INFORMATION -->
+    <!-- ============================================= -->
 
-                    <i class="bi bi-geo-alt-fill"></i>
+    <div class="row g-4 mb-5">
 
-                    GIS Information
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-person-vcard-fill text-success display-5"></i>
+
+                    <h6 class="mt-3 text-muted">
+
+                        Aadhaar
+
+                    </h6>
+
+                    <h5>
+
+                        {{ farmer.aadhaar }}
+
+                    </h5>
 
                 </div>
 
-                <div class="card-body">
+            </div>
 
-                    <table class="table table-borderless">
+        </div>
 
-                        <tr>
+        <div class="col-lg-3 col-md-6">
 
-                            <th>District</th>
+            <div class="card border-0 shadow h-100">
 
-                            <td>{{ farmer.district }}</td>
+                <div class="card-body text-center">
 
-                        </tr>
+                    <i class="bi bi-telephone-fill text-primary display-5"></i>
 
-                        <tr>
+                    <h6 class="mt-3 text-muted">
 
-                            <th>Village</th>
+                        Mobile
 
-                            <td>{{ farmer.village }}</td>
+                    </h6>
 
-                        </tr>
+                    <h5>
 
-                        <tr>
+                        {{ farmer.mobile }}
 
-                            <th>Latitude</th>
+                    </h5>
 
-                            <td>{{ farmer.latitude }}</td>
+                </div>
 
-                        </tr>
+            </div>
 
-                        <tr>
+        </div>
 
-                            <th>Longitude</th>
+        <div class="col-lg-3 col-md-6">
 
-                            <td>{{ farmer.longitude }}</td>
+            <div class="card border-0 shadow h-100">
 
-                        </tr>
+                <div class="card-body text-center">
 
-                    </table>
+                    <i class="bi bi-map-fill text-danger display-5"></i>
+
+                    <h6 class="mt-3 text-muted">
+
+                        Village
+
+                    </h6>
+
+                    <h5>
+
+                        {{ farmer.village }}
+
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card border-0 shadow h-100">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-flower1 text-warning display-5"></i>
+
+                    <h6 class="mt-3 text-muted">
+
+                        Land Area
+
+                    </h6>
+
+                    <h5>
+
+                        {{ farmer.land }} Acres
+
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ============================================= -->
+    <!-- PERSONAL INFORMATION -->
+    <!-- ============================================= -->
+     <!-- ============================================= -->
+<!-- PERSONAL & AGRICULTURAL INFORMATION -->
+<!-- ============================================= -->
+
+<div class="row g-4 mb-5">
+
+    <!-- Personal Information -->
+
+    <div class="col-lg-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+            <div class="card-header bg-success text-white py-3">
+
+                <h4 class="mb-0">
+
+                    <i class="bi bi-person-vcard-fill me-2"></i>
+
+                    Personal Information
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-borderless align-middle mb-0">
+
+                    <tr>
+
+                        <th width="40%">
+
+                            <i class="bi bi-hash text-success me-2"></i>
+
+                            Farmer ID
+
+                        </th>
+
+                        <td>
+
+                            <span class="badge bg-success">
+
+                                #{{ farmer.id }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-person-fill text-success me-2"></i>
+
+                            Full Name
+
+                        </th>
+
+                        <td>{{ farmer.name }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-calendar-event-fill text-success me-2"></i>
+
+                            Age
+
+                        </th>
+
+                        <td>{{ farmer.age }} Years</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-gender-ambiguous text-success me-2"></i>
+
+                            Gender
+
+                        </th>
+
+                        <td>{{ farmer.gender }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-credit-card-2-front-fill text-success me-2"></i>
+
+                            Aadhaar
+
+                        </th>
+
+                        <td>{{ farmer.aadhaar }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-telephone-fill text-success me-2"></i>
+
+                            Mobile
+
+                        </th>
+
+                        <td>{{ farmer.mobile }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-geo-alt-fill text-success me-2"></i>
+
+                            District
+
+                        </th>
+
+                        <td>{{ farmer.district }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-bank2 text-success me-2"></i>
+
+                            Bank
+
+                        </th>
+
+                        <td>{{ farmer.bank }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-wallet2 text-success me-2"></i>
+
+                            Account Number
+
+                        </th>
+
+                        <td>{{ farmer.account }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-shield-lock-fill text-success me-2"></i>
+
+                            IFSC Code
+
+                        </th>
+
+                        <td>{{ farmer.ifsc }}</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Agricultural Information -->
+
+    <div class="col-lg-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+            <div class="card-header bg-primary text-white py-3">
+
+                <h4 class="mb-0">
+
+                    <i class="bi bi-tree-fill me-2"></i>
+
+                    Agricultural Information
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-borderless align-middle mb-0">
+
+                    <tr>
+
+                        <th width="45%">
+
+                            <i class="bi bi-flower1 text-primary me-2"></i>
+
+                            Primary Crop
+
+                        </th>
+
+                        <td>
+
+                            <span class="badge bg-success">
+
+                                {{ farmer.crop }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-grid-fill text-primary me-2"></i>
+
+                            Land Area
+
+                        </th>
+
+                        <td>
+
+                            {{ farmer.land }} Acres
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-box-seam-fill text-primary me-2"></i>
+
+                            Subsidy Type
+
+                        </th>
+
+                        <td>
+
+                            {{ farmer.subsidy }}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-award-fill text-primary me-2"></i>
+
+                            Eligible Quantity
+
+                        </th>
+
+                        <td>
+
+                            {{ farmer.eligible }}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+
+                            Quantity Issued
+
+                        </th>
+
+                        <td>
+
+                            {{ farmer.issued }}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-hourglass-split text-primary me-2"></i>
+
+                            Remaining Balance
+
+                        </th>
+
+                        <td>
+
+                            {{ farmer.balance }}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-patch-check-fill text-primary me-2"></i>
+
+                            Subsidy Status
+
+                        </th>
+
+                        <td>
+
+                            {% if farmer.status=="Completed" %}
+
+                            <span class="badge bg-success px-3 py-2">
+
+                                <i class="bi bi-check-circle-fill me-1"></i>
+
+                                Completed
+
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-warning text-dark px-3 py-2">
+
+                                <i class="bi bi-hourglass-split me-1"></i>
+
+                                Pending
+
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-patch-check-fill text-primary me-2"></i>
+
+                            Registration
+
+                        </th>
+
+                        <td>
+
+                            <span class="badge bg-success">
+
+                                Verified
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-clock-history text-primary me-2"></i>
+
+                            Last Updated
+
+                        </th>
+
+                        <td>
+
+                            Today
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ============================================= -->
+<!-- SUBSIDY ELIGIBILITY -->
+<!-- ============================================= -->
+ <!-- ============================================= -->
+<!-- SUBSIDY ELIGIBILITY & GIS INFORMATION -->
+<!-- ============================================= -->
+
+<div class="row g-4 mb-5">
+
+    <!-- Subsidy Eligibility -->
+
+    <div class="col-lg-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+            <div class="card-header bg-success text-white py-3">
+
+                <h4 class="mb-0">
+
+                    <i class="bi bi-award-fill me-2"></i>
+
+                    Subsidy Eligibility
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="list-group list-group-flush">
+
+                    <div class="list-group-item border-0 px-0 d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <i class="bi bi-flower1 text-success me-2"></i>
+
+                            Seed Subsidy
+
+                        </div>
+
+                        <span class="badge bg-success px-3 py-2">
+
+                            Eligible
+
+                        </span>
+
+                    </div>
+
+                    <div class="list-group-item border-0 px-0 d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <i class="bi bi-box-seam-fill text-primary me-2"></i>
+
+                            Fertilizer Subsidy
+
+                        </div>
+
+                        <span class="badge bg-success px-3 py-2">
+
+                            Eligible
+
+                        </span>
+
+                    </div>
+
+                    <div class="list-group-item border-0 px-0 d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <i class="bi bi-tools text-warning me-2"></i>
+
+                            Equipment Assistance
+
+                        </div>
+
+                        <span class="badge bg-warning text-dark px-3 py-2">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                    <div class="list-group-item border-0 px-0 d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <i class="bi bi-shield-check text-success me-2"></i>
+
+                            Crop Insurance
+
+                        </div>
+
+                        <span class="badge bg-success px-3 py-2">
+
+                            Active
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="alert alert-success mb-0">
+
+                    <i class="bi bi-info-circle-fill me-2"></i>
+
+                    This farmer currently satisfies the eligibility criteria
+                    for the listed government agricultural welfare schemes.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GIS INFORMATION -->
+
+    <div class="col-lg-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+            <div class="card-header bg-primary text-white py-3">
+
+                <h4 class="mb-0">
+
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+
+                    GIS Information
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-borderless align-middle mb-4">
+
+                    <tr>
+
+                        <th width="40%">
+
+                            <i class="bi bi-building text-primary me-2"></i>
+
+                            District
+
+                        </th>
+
+                        <td>{{ farmer.district }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-house-fill text-primary me-2"></i>
+
+                            Village
+
+                        </th>
+
+                        <td>{{ farmer.village }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-compass-fill text-primary me-2"></i>
+
+                            Latitude
+
+                        </th>
+
+                        <td>{{ farmer.latitude }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+
+                            <i class="bi bi-compass text-primary me-2"></i>
+
+                            Longitude
+
+                        </th>
+
+                        <td>{{ farmer.longitude }}</td>
+
+                    </tr>
+
+                </table>
+
+
+
+                <div class="card bg-light border-0 mb-4">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-map display-4 text-success"></i>
+
+                        <h5 class="mt-3">
+
+                            GIS Location Verified
+
+                        </h5>
+
+                        <p class="text-muted mb-0">
+
+                            This farmer's agricultural location is linked
+                            with the AgriSetu GIS monitoring system.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="d-grid">
 
                     <a href="{{ url_for('map_view') }}"
-                       class="btn btn-success mt-2">
 
-                        <i class="bi bi-map-fill"></i>
+                       class="btn btn-success btn-lg">
+
+                        <i class="bi bi-map-fill me-2"></i>
 
                         View on GIS Map
 
@@ -432,33 +1019,56 @@ Farmer Details | AgriSetu
 
     </div>
 
-    <!-- ========================================= -->
-    <!-- SUBSIDY HISTORY -->
-    <!-- ========================================= -->
+</div>
 
-    <div class="card mb-4">
 
-        <div class="card-header">
 
-            <i class="bi bi-clock-history"></i>
+<!-- ============================================= -->
+<!-- SUBSIDY HISTORY -->
+<!-- ============================================= -->
+ <!-- ============================================= -->
+<!-- SUBSIDY HISTORY -->
+<!-- ============================================= -->
 
-            Subsidy History
+<div class="card border-0 shadow-lg mb-5">
+
+    <div class="card-header bg-success text-white py-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+
+                <i class="bi bi-clock-history me-2"></i>
+
+                Subsidy Distribution History
+
+            </h4>
+
+            <span class="badge bg-light text-success">
+
+                {{ history|length }} Record(s)
+
+            </span>
 
         </div>
 
-        <div class="card-body">
+    </div>
 
-            {% if history %}
+    <div class="card-body">
 
-            <table class="table table-hover">
+        {% if history %}
 
-                <thead>
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-success">
 
                     <tr>
 
                         <th>Date</th>
 
-                        <th>Subsidy</th>
+                        <th>Subsidy Type</th>
 
                         <th>Quantity</th>
 
@@ -470,19 +1080,39 @@ Farmer Details | AgriSetu
 
                 <tbody>
 
-                    {% for record in history %}
+                {% for record in history %}
 
                     <tr>
 
-                        <td>{{ record.date }}</td>
+                        <td>
 
-                        <td>{{ record.subsidy }}</td>
+                            <i class="bi bi-calendar-event-fill text-success me-2"></i>
 
-                        <td>{{ record.quantity }}</td>
+                            {{ record.date }}
+
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-primary">
+
+                                {{ farmer.subsidy }}
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            {{ record.quantity }}
+
+                        </td>
 
                         <td>
 
                             <span class="badge bg-success">
+
+                                <i class="bi bi-check-circle-fill me-1"></i>
 
                                 Issued
 
@@ -492,146 +1122,234 @@ Farmer Details | AgriSetu
 
                     </tr>
 
-                    {% endfor %}
+                {% endfor %}
 
                 </tbody>
 
             </table>
 
-            {% else %}
+        </div>
 
-            <div class="alert alert-info">
+        {% else %}
 
-                No subsidy history available for this farmer.
+        <div class="text-center py-5">
 
-            </div>
+            <i class="bi bi-clock-history display-4 text-secondary"></i>
 
-            {% endif %}
+            <h4 class="mt-3">
+
+                No Subsidy History
+
+            </h4>
+
+            <p class="text-muted">
+
+                No subsidy distribution has been recorded for this farmer.
+
+            </p>
 
         </div>
 
+        {% endif %}
+
     </div>
 
-    <!-- ========================================= -->
-    <!-- QUICK STATUS -->
-    <!-- ========================================= -->
+</div>
 
-    <div class="row">
 
-        <div class="col-md-3 mb-3">
 
-            <div class="stat-card text-center">
+<!-- ============================================= -->
+<!-- QUICK STATUS -->
+<!-- ============================================= -->
 
-                <div class="stat-icon">
+<div class="row g-4 mb-5">
 
-                    ✅
+    <div class="col-lg-3 col-md-6">
+
+        <div class="card border-0 shadow text-center h-100">
+
+            <div class="card-body">
+
+                <div class="display-5 text-success">
+
+                    <i class="bi bi-patch-check-fill"></i>
 
                 </div>
 
-                <h5>
+                <h5 class="mt-3">
 
                     Verified
 
                 </h5>
 
+                <p class="text-muted mb-0">
+
+                    Identity & Documents
+
+                </p>
+
             </div>
 
         </div>
 
-        <div class="col-md-3 mb-3">
+    </div>
 
-            <div class="stat-card text-center">
 
-                <div class="stat-icon">
 
-                    🌾
+    <div class="col-lg-3 col-md-6">
+
+        <div class="card border-0 shadow text-center h-100">
+
+            <div class="card-body">
+
+                <div class="display-5 text-warning">
+
+                    <i class="bi bi-award-fill"></i>
 
                 </div>
 
-                <h5>
+                <h5 class="mt-3">
 
                     Eligible
 
                 </h5>
 
+                <p class="text-muted mb-0">
+
+                    Government Schemes
+
+                </p>
+
             </div>
 
         </div>
 
-        <div class="col-md-3 mb-3">
+    </div>
 
-            <div class="stat-card text-center">
 
-                <div class="stat-icon">
 
-                    📦
+    <div class="col-lg-3 col-md-6">
+
+        <div class="card border-0 shadow text-center h-100">
+
+            <div class="card-body">
+
+                <div class="display-5 text-primary">
+
+                    <i class="bi bi-box-seam-fill"></i>
 
                 </div>
 
-                <h5>
+                <h5 class="mt-3">
 
                     Inventory Ready
 
                 </h5>
 
+                <p class="text-muted mb-0">
+
+                    Stock Available
+
+                </p>
+
             </div>
 
         </div>
 
-        <div class="col-md-3 mb-3">
+    </div>
 
-            <div class="stat-card text-center">
 
-                <div class="stat-icon">
 
-                    🔒
+    <div class="col-lg-3 col-md-6">
+
+        <div class="card border-0 shadow text-center h-100">
+
+            <div class="card-body">
+
+                <div class="display-5 text-danger">
+
+                    <i class="bi bi-shield-lock-fill"></i>
 
                 </div>
 
-                <h5>
+                <h5 class="mt-3">
 
                     Secure Record
 
                 </h5>
 
+                <p class="text-muted mb-0">
+
+                    Government Database
+
+                </p>
+
             </div>
 
         </div>
 
     </div>
-        <!-- ========================================= -->
-    <!-- GOVERNMENT DECLARATION -->
-    <!-- ========================================= -->
 
-    <div class="card mt-4">
+</div>
 
-        <div class="card-header">
 
-            <i class="bi bi-file-earmark-check-fill"></i>
+
+<!-- ============================================= -->
+<!-- GOVERNMENT DECLARATION -->
+<!-- ============================================= -->
+ <!-- ============================================= -->
+<!-- GOVERNMENT DECLARATION -->
+<!-- ============================================= -->
+
+<div class="card border-0 shadow-lg mb-5">
+
+    <div class="card-header bg-success text-white py-3">
+
+        <h4 class="mb-0">
+
+            <i class="bi bi-file-earmark-check-fill me-2"></i>
 
             Government Declaration
 
-        </div>
+        </h4>
 
-        <div class="card-body">
+    </div>
 
-            <p>
+    <div class="card-body">
 
-                The above information has been recorded in the
-                AgriSetu Agricultural Subsidy Management System.
-                Subsidies shall be issued only after verification
-                of land ownership, identity documents, eligibility
-                criteria and government regulations.
+        <p class="mb-4">
 
-            </p>
+            This farmer's information has been digitally recorded in the
+            <strong>AgriSetu Smart Agricultural Subsidy Management System</strong>.
+            All subsidy benefits shall be provided only after verification of
+            identity, land ownership, eligibility criteria and applicable
+            Government regulations.
 
-            <div class="alert alert-success mb-0">
+        </p>
 
-                <strong>Status:</strong>
+        <div class="alert alert-success border-0 shadow-sm">
 
-                This farmer is currently eligible for government
-                agricultural welfare schemes, subject to final
-                administrative approval.
+            <div class="d-flex align-items-start">
+
+                <i class="bi bi-shield-check display-6 me-3"></i>
+
+                <div>
+
+                    <h5 class="fw-bold">
+
+                        Verification Status
+
+                    </h5>
+
+                    <p class="mb-0">
+
+                        This farmer is currently eligible for Government
+                        agricultural welfare schemes, subject to final
+                        administrative approval and inventory availability.
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -639,93 +1357,181 @@ Farmer Details | AgriSetu
 
     </div>
 
-    <!-- ========================================= -->
-    <!-- ACTION BUTTONS -->
-    <!-- ========================================= -->
+</div>
 
-    <div class="row mt-4">
 
-        <div class="col-lg-3 mb-3">
 
-            <button
-                onclick="window.print();"
-                class="btn btn-primary w-100">
+<!-- ============================================= -->
+<!-- ACTION CENTER -->
+<!-- ============================================= -->
 
-                <i class="bi bi-printer-fill"></i>
+<div class="card border-0 shadow-lg mb-5">
 
-                Print Profile
+    <div class="card-header bg-dark text-white py-3">
 
-            </button>
+        <h4 class="mb-0">
 
-        </div>
+            <i class="bi bi-lightning-charge-fill me-2"></i>
 
-        <div class="col-lg-3 mb-3">
+            Quick Actions
 
-            <a href="{{ url_for('edit_farmer', id=farmer.id) }}"
-               class="btn btn-warning text-white w-100">
+        </h4>
 
-                <i class="bi bi-pencil-fill"></i>
+    </div>
 
-                Edit Farmer
+    <div class="card-body">
 
-            </a>
+        <div class="row g-3">
 
-        </div>
+            <div class="col-lg-3 col-md-6">
 
-        <div class="col-lg-3 mb-3">
+                <button
+                    onclick="window.print();"
+                    class="btn btn-outline-primary w-100 py-3">
 
-            <a href="{{ url_for('issue', id=farmer.id) }}"
-               class="btn btn-success w-100">
+                    <i class="bi bi-printer-fill fs-4 d-block mb-2"></i>
 
-                <i class="bi bi-gift-fill"></i>
+                    Print Profile
 
-                Issue Subsidy
+                </button>
 
-            </a>
+            </div>
 
-        </div>
+            <div class="col-lg-3 col-md-6">
 
-        <div class="col-lg-3 mb-3">
+                <a href="{{ url_for('edit_farmer', id=farmer.id) }}"
+                   class="btn btn-outline-warning w-100 py-3">
 
-            <a href="{{ url_for('farmers') }}"
-               class="btn btn-outline-secondary w-100">
+                    <i class="bi bi-pencil-square fs-4 d-block mb-2"></i>
 
-                <i class="bi bi-arrow-left"></i>
+                    Edit Profile
 
-                Back to Registry
+                </a>
 
-            </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="{{ url_for('issue', id=farmer.id) }}"
+                   class="btn btn-success w-100 py-3">
+
+                    <i class="bi bi-gift-fill fs-4 d-block mb-2"></i>
+
+                    Issue Subsidy
+
+                </a>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="{{ url_for('farmers') }}"
+                   class="btn btn-outline-success w-100 py-3">
+
+                    <i class="bi bi-arrow-left-circle-fill fs-4 d-block mb-2"></i>
+
+                    Farmer Registry
+
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- ========================================= -->
-    <!-- PROFILE SUMMARY -->
-    <!-- ========================================= -->
+</div>
 
-    <div class="card mt-4">
 
-        <div class="card-body text-center">
 
-            <h4 class="text-success">
+<!-- ============================================= -->
+<!-- DIGITAL IDENTITY FOOTER -->
+<!-- ============================================= -->
 
-                🌾 Digital Farmer Identity Record 🌾
+<div class="card border-0 shadow-lg overflow-hidden mb-4">
 
-            </h4>
+    <div class="card-body text-center py-5">
 
-            <p class="text-muted mb-0">
+        <div class="mb-4">
 
-                This profile is maintained electronically through the
-                AgriSetu portal for secure farmer registration,
-                subsidy management, GIS monitoring and administrative
-                reporting.
+            <i class="bi bi-person-vcard-fill text-success"
+               style="font-size:70px;"></i>
 
-            </p>
+        </div>
+
+        <h2 class="fw-bold text-success mb-3">
+
+            Digital Farmer Identity Record
+
+        </h2>
+
+        <p class="text-muted fs-5 mx-auto"
+           style="max-width:850px;">
+
+            This electronic farmer profile is securely maintained through the
+            AgriSetu portal to support transparent farmer registration,
+            agricultural subsidy distribution, GIS monitoring, inventory
+            management and Government reporting.
+
+        </p>
+
+        <hr class="my-4">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 mb-3">
+
+                <i class="bi bi-shield-check display-6 text-success"></i>
+
+                <h6 class="mt-2">
+
+                    Secure
+
+                </h6>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <i class="bi bi-geo-alt-fill display-6 text-primary"></i>
+
+                <h6 class="mt-2">
+
+                    GIS Enabled
+
+                </h6>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <i class="bi bi-box-seam-fill display-6 text-warning"></i>
+
+                <h6 class="mt-2">
+
+                    Inventory Linked
+
+                </h6>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <i class="bi bi-award-fill display-6 text-danger"></i>
+
+                <h6 class="mt-2">
+
+                    Welfare Ready
+
+                </h6>
+
+            </div>
 
         </div>
 
     </div>
+
+</div>
 
 </div>
 

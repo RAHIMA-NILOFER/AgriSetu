@@ -127,38 +127,38 @@
 
                     <div class="col-md-6 mb-3">
 
-    <label class="form-label">
-        Subsidy Type
-    </label>
+                        <label class="form-label">
+                            Subsidy Type
+                        </label>
 
-    <select
-        name="subsidy"
-        class="form-select"
-        required>
+                        <select
+                            name="subsidy"
+                            class="form-select"
+                            required>
 
-        <option value="Rice Seeds" {% if farmer['subsidy']=="Rice Seeds" %}selected{% endif %}>Rice Seeds</option>
+                            <option value="Rice Seeds" {% if farmer['subsidy']=="Rice Seeds" %}selected{% endif %}>Rice Seeds</option>
 
-        <option value="Wheat Seeds" {% if farmer['subsidy']=="Wheat Seeds" %}selected{% endif %}>Wheat Seeds</option>
+                            <option value="Wheat Seeds" {% if farmer['subsidy']=="Wheat Seeds" %}selected{% endif %}>Wheat Seeds</option>
 
-        <option value="DAP Fertilizer" {% if farmer['subsidy']=="DAP Fertilizer" %}selected{% endif %}>DAP Fertilizer</option>
+                            <option value="DAP Fertilizer" {% if farmer['subsidy']=="DAP Fertilizer" %}selected{% endif %}>DAP Fertilizer</option>
 
-        <option value="Urea" {% if farmer['subsidy']=="Urea" %}selected{% endif %}>Urea</option>
+                            <option value="Urea" {% if farmer['subsidy']=="Urea" %}selected{% endif %}>Urea</option>
 
-        <option value="Organic Fertilizer" {% if farmer['subsidy']=="Organic Fertilizer" %}selected{% endif %}>Organic Fertilizer</option>
+                            <option value="Organic Fertilizer" {% if farmer['subsidy']=="Organic Fertilizer" %}selected{% endif %}>Organic Fertilizer</option>
 
-        <option value="Pesticide" {% if farmer['subsidy']=="Pesticide" %}selected{% endif %}>Pesticide</option>
+                            <option value="Pesticide" {% if farmer['subsidy']=="Pesticide" %}selected{% endif %}>Pesticide</option>
 
-        <option value="Sprayer" {% if farmer['subsidy']=="Sprayer" %}selected{% endif %}>Sprayer</option>
+                            <option value="Sprayer" {% if farmer['subsidy']=="Sprayer" %}selected{% endif %}>Sprayer</option>
 
-        <option value="Drip Kit" {% if farmer['subsidy']=="Drip Kit" %}selected{% endif %}>Drip Kit</option>
+                            <option value="Drip Kit" {% if farmer['subsidy']=="Drip Kit" %}selected{% endif %}>Drip Kit</option>
 
-        <option value="Water Pump" {% if farmer['subsidy']=="Water Pump" %}selected{% endif %}>Water Pump</option>
+                            <option value="Water Pump" {% if farmer['subsidy']=="Water Pump" %}selected{% endif %}>Water Pump</option>
 
-        <option value="Tractor Subsidy" {% if farmer['subsidy']=="Tractor Subsidy" %}selected{% endif %}>Tractor Subsidy</option>
+                            <option value="Tractor Subsidy" {% if farmer['subsidy']=="Tractor Subsidy" %}selected{% endif %}>Tractor Subsidy</option>
 
-    </select>
+                        </select>
 
-</div>
+                    </div>
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Eligible Quantity</label>

@@ -8,59 +8,100 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+          content="AgriSetu - Smart Agricultural Subsidy Management System">
+
+    <meta name="keywords"
+          content="Agriculture, Farmer, Subsidy, Government, Flask">
+
+    <meta name="author"
+          content="AgriSetu">
+
     <title>
 
         {% block title %}
-
         AgriSetu | Smart Agricultural Subsidy Management System
-
         {% endblock %}
 
     </title>
 
-    <!-- Bootstrap -->
+    <!-- ===================================== -->
+    <!-- BOOTSTRAP -->
+    <!-- ===================================== -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- ===================================== -->
+    <!-- BOOTSTRAP ICONS -->
+    <!-- ===================================== -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-          rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
 
-    <!-- Google Font -->
+    <!-- ===================================== -->
+    <!-- GOOGLE FONT -->
+    <!-- ===================================== -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <!-- Custom CSS -->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <!-- Favicon -->
+    <!-- ===================================== -->
+    <!-- CUSTOM CSS -->
+    <!-- ===================================== -->
 
-    <link rel="icon"
-          href="{{ url_for('static', filename='images/agriculture.png') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- ===================================== -->
+    <!-- FAVICON -->
+    <!-- ===================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='images/agriculture.png') }}">
+
+    <!-- ===================================== -->
+    <!-- THEME COLOR -->
+    <!-- ===================================== -->
+
+    <meta name="theme-color"
+          content="#2E7D32">
+
+    <!-- ===================================== -->
+    <!-- EXTRA CSS -->
+    <!-- ===================================== -->
 
     {% block extra_css %}
     {% endblock %}
-
 </head>
-
 <body>
 
-<!-- ===================================== -->
-<!-- GOVERNMENT HEADER -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
+<!-- GOVERNMENT TOP BAR -->
+<!-- ========================================================= -->
 
 <div class="gov-topbar">
 
     <div class="container-fluid">
 
-        <div class="row align-items-center">
+        <div class="row align-items-center gy-2">
 
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-md-7">
 
                 <div class="d-flex align-items-center">
 
@@ -90,19 +131,19 @@
 
             </div>
 
-            <div class="col-lg-4 text-lg-end">
+            <div class="col-lg-4 col-md-5 text-md-end">
 
-                <span class="gov-info">
+                <span class="gov-info me-3">
 
-                    <i class="bi bi-calendar3"></i>
+                    <i class="bi bi-calendar-event-fill"></i>
 
                     <span id="currentDate"></span>
 
                 </span>
 
-                <span class="gov-info ms-3">
+                <span class="gov-info">
 
-                    <i class="bi bi-clock"></i>
+                    <i class="bi bi-clock-fill"></i>
 
                     <span id="currentTime"></span>
 
@@ -116,13 +157,13 @@
 
 </div>
 
-<!-- ===================================== -->
+<!-- ========================================================= -->
 <!-- PORTAL HEADER -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
 
 <header class="portal-header">
 
-    <div class="container-fluid py-3">
+    <div class="container-fluid py-4">
 
         <div class="row align-items-center">
 
@@ -132,23 +173,29 @@
 
                     <div class="portal-icon">
 
-                        🌾
+                        <i class="bi bi-tree-fill"></i>
 
                     </div>
 
-                    <div>
+                    <div class="ms-3">
 
-                        <h2 class="portal-title mb-1">
+                        <h1 class="portal-title mb-2">
 
                             AgriSetu
 
-                        </h2>
+                        </h1>
 
-                        <p class="portal-tagline mb-0">
+                        <p class="portal-tagline mb-2">
 
                             Smart Agricultural Subsidy Management System
 
                         </p>
+
+                        <small class="text-success fw-semibold">
+
+                            Digital • Transparent • Secure • Efficient
+
+                        </small>
 
                     </div>
 
@@ -156,13 +203,31 @@
 
             </div>
 
-            <div class="col-lg-4 text-lg-end">
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
 
                 <div class="admin-badge">
 
-                    <i class="bi bi-person-badge-fill"></i>
+                    <div class="d-flex align-items-center justify-content-center">
 
-                    Administrator
+                        <i class="bi bi-person-circle fs-4 me-2"></i>
+
+                        <div class="text-start">
+
+                            <div class="fw-bold">
+
+                                Administrator
+
+                            </div>
+
+                            <small>
+
+                                AgriSetu Control Panel
+
+                            </small>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -173,21 +238,31 @@
     </div>
 
 </header>
-<!-- ===================================== -->
+
+<!-- ========================================================= -->
+<!-- NAVIGATION BAR -->
+<!-- ========================================================= -->
+ <!-- ========================================================= -->
 <!-- NAVBAR -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
 
 <nav class="navbar navbar-expand-lg portal-navbar sticky-top">
 
     <div class="container-fluid">
 
+        <a class="navbar-brand fw-bold text-white"
+           href="{{ url_for('dashboard') }}">
+
+            <i class="bi bi-tree-fill me-2"></i>
+
+            AgriSetu
+
+        </a>
+
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#portalNavbar"
-                aria-controls="portalNavbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+                data-bs-target="#portalNavbar">
 
             <span class="navbar-toggler-icon"></span>
 
@@ -197,23 +272,6 @@
              id="portalNavbar">
 
             <ul class="navbar-nav mx-auto">
-
-                <!-- Home -->
-
-                <li class="nav-item">
-
-                    <a class="nav-link {% if request.endpoint=='index' %}active{% endif %}"
-                       href="{{ url_for('index') }}">
-
-                        <i class="bi bi-house-door-fill"></i>
-
-                        Home
-
-                    </a>
-
-                </li>
-
-                <!-- Dashboard -->
 
                 <li class="nav-item">
 
@@ -228,8 +286,6 @@
 
                 </li>
 
-                <!-- Farmers -->
-
                 <li class="nav-item">
 
                     <a class="nav-link {% if request.endpoint=='farmers' %}active{% endif %}"
@@ -243,67 +299,18 @@
 
                 </li>
 
-                <!-- Register -->
-
-                <li class="nav-item">
-
-                    <a class="nav-link {% if request.endpoint=='register' %}active{% endif %}"
-                       href="{{ url_for('register') }}">
-
-                        <i class="bi bi-person-plus-fill"></i>
-
-                        Register
-
-                    </a>
-
-                </li>
-
-                <!-- Inventory -->
-
                 <li class="nav-item">
 
                     <a class="nav-link {% if request.endpoint=='inventory' %}active{% endif %}"
                        href="{{ url_for('inventory') }}">
 
-                        <i class="bi bi-box-seam"></i>
+                        <i class="bi bi-box-seam-fill"></i>
 
                         Inventory
 
                     </a>
 
                 </li>
-
-                <!-- Issue Subsidy -->
-
-                <li class="nav-item">
-
-                    <a class="nav-link"
-                    href="{{ url_for('farmers') }}">
-
-                        <i class="bi bi-gift-fill"></i>
-
-                        Issue Subsidy
-
-                    </a>
-
-                </li>
-
-                <!-- GIS Map -->
-
-                <li class="nav-item">
-
-                    <a class="nav-link {% if request.endpoint=='map_view' %}active{% endif %}"
-                       href="{{ url_for('map_view') }}">
-
-                        <i class="bi bi-geo-alt-fill"></i>
-
-                        GIS Map
-
-                    </a>
-
-                </li>
-
-                <!-- History -->
 
                 <li class="nav-item">
 
@@ -318,31 +325,14 @@
 
                 </li>
 
-                <!-- Export -->
-
                 <li class="nav-item">
 
-                    <a class="nav-link"
-                       href="{{ url_for('export') }}">
+                    <a class="nav-link {% if request.endpoint=='map_view' %}active{% endif %}"
+                       href="{{ url_for('map_view') }}">
 
-                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                        <i class="bi bi-geo-alt-fill"></i>
 
-                        Export CSV
-
-                    </a>
-
-                </li>
-
-                <!-- Logout -->
-
-                <li class="nav-item">
-
-                    <a class="nav-link text-warning"
-                       href="{{ url_for('logout') }}">
-
-                        <i class="bi bi-box-arrow-right"></i>
-
-                        Logout
+                        GIS Map
 
                     </a>
 
@@ -350,20 +340,50 @@
 
             </ul>
 
+            <div class="d-flex align-items-center gap-2">
+
+                <a href="{{ url_for('register') }}"
+                   class="btn btn-success">
+
+                    <i class="bi bi-person-plus-fill me-1"></i>
+
+                    Register Farmer
+
+                </a>
+
+                <a href="{{ url_for('export') }}"
+                   class="btn btn-warning">
+
+                    <i class="bi bi-download me-1"></i>
+
+                    Export
+
+                </a>
+
+                <a href="{{ url_for('logout') }}"
+                   class="btn btn-danger">
+
+                    <i class="bi bi-box-arrow-right me-1"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
         </div>
 
     </div>
 
 </nav>
-<!-- ===================================== -->
-<!-- PAGE CONTENT -->
-<!-- ===================================== -->
+
+<!-- ========================================================= -->
+<!-- MAIN CONTENT -->
+<!-- ========================================================= -->
 
 <main class="main-content">
 
     <div class="container-fluid py-4">
-
-        <!-- Flash Messages -->
 
         {% with messages = get_flashed_messages(with_categories=true) %}
 
@@ -371,7 +391,7 @@
 
                 {% for category, message in messages %}
 
-                    <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm"
+                    <div class="alert alert-{{ category }} alert-dismissible fade show mb-4"
                          role="alert">
 
                         <i class="bi bi-info-circle-fill me-2"></i>
@@ -380,8 +400,7 @@
 
                         <button type="button"
                                 class="btn-close"
-                                data-bs-dismiss="alert"
-                                aria-label="Close">
+                                data-bs-dismiss="alert">
 
                         </button>
 
@@ -393,19 +412,17 @@
 
         {% endwith %}
 
-        <!-- Dynamic Page Content -->
-
         {% block content %}
         {% endblock %}
 
     </div>
 
 </main>
-<!-- ===================================== -->
-<!-- GOVERNMENT FOOTER -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
 
-<footer class="portal-footer mt-5">
+<footer class="portal-footer">
 
     <div class="container-fluid">
 
@@ -415,18 +432,19 @@
 
             <div class="col-lg-4">
 
-                <h5 class="footer-title">
+                <h5>
 
-                    🌾 AgriSetu
+                    <i class="bi bi-tree-fill me-2"></i>
+
+                    AgriSetu
 
                 </h5>
 
-                <p class="footer-text">
+                <p>
 
-                    AgriSetu is a Smart Agricultural Subsidy Management
-                    System developed using Flask, SQLite, Bootstrap and
-                    Leaflet Maps to provide transparent, secure and
-                    efficient subsidy distribution for farmers.
+                    Smart Agricultural Subsidy Management System built for
+                    transparent, secure and efficient subsidy distribution
+                    using Flask, SQLite, Bootstrap and GIS technologies.
 
                 </p>
 
@@ -436,7 +454,7 @@
 
             <div class="col-lg-4">
 
-                <h5 class="footer-title">
+                <h5>
 
                     Quick Links
 
@@ -445,113 +463,80 @@
                 <ul class="footer-links">
 
                     <li>
-
                         <a href="{{ url_for('dashboard') }}">
-
                             Dashboard
-
                         </a>
-
                     </li>
 
                     <li>
-
                         <a href="{{ url_for('farmers') }}">
-
-                            Farmer Registry
-
+                            Farmers
                         </a>
-
                     </li>
 
                     <li>
-
-                        <a href="{{ url_for('register') }}">
-
-                            Register Farmer
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
                         <a href="{{ url_for('inventory') }}">
-
                             Inventory
-
                         </a>
-
                     </li>
 
                     <li>
-
-                        <a href="{{ url_for('map_view') }}">
-
-                            GIS Monitoring
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
                         <a href="{{ url_for('history') }}">
-
-                            Subsidy History
-
+                            History
                         </a>
+                    </li>
 
+                    <li>
+                        <a href="{{ url_for('map_view') }}">
+                            GIS Map
+                        </a>
                     </li>
 
                 </ul>
 
             </div>
 
-            <!-- Government Information -->
+            <!-- Government Info -->
 
             <div class="col-lg-4">
 
-                <h5 class="footer-title">
+                <h5>
 
                     Government Information
 
                 </h5>
 
-                <p class="footer-text mb-2">
+                <p>
 
-                    <strong>Ministry:</strong><br>
+                    <strong>Ministry</strong><br>
 
                     Ministry of Agriculture & Farmers Welfare
 
                 </p>
 
-                <p class="footer-text mb-2">
+                <p>
 
-                    <strong>Country:</strong><br>
+                    <strong>Country</strong><br>
 
                     Government of India
 
                 </p>
 
-                <p class="footer-text mb-2">
-
-                    <strong>Portal Version:</strong>
+                <p>
 
                     <span class="badge bg-success">
 
-                        3.0
+                        Portal Version 3.0
 
                     </span>
 
                 </p>
 
-                <p class="footer-text">
+                <p>
 
-                    Status :
-                    <span class="badge bg-success">
+                    <span class="badge bg-primary">
 
-                        Operational
+                        Status : Operational
 
                     </span>
 
@@ -561,7 +546,7 @@
 
         </div>
 
-        <hr>
+        <hr class="my-4">
 
         <div class="row align-items-center">
 
@@ -569,8 +554,7 @@
 
                 <small>
 
-                    © 2026 Government of India.
-                    All Rights Reserved.
+                    © 2026 Government of India • All Rights Reserved
 
                 </small>
 
@@ -580,9 +564,7 @@
 
                 <small>
 
-                    Developed using Flask, SQLite,
-                    Bootstrap 5, Leaflet Maps &
-                    OpenStreetMap.
+                    Powered by Flask • SQLite • Bootstrap • Leaflet • OpenStreetMap
 
                 </small>
 
@@ -593,21 +575,22 @@
     </div>
 
 </footer>
-<!-- ===================================== -->
-<!-- BOOTSTRAP JAVASCRIPT -->
-<!-- ===================================== -->
+
+<!-- ========================================================= -->
+<!-- BOOTSTRAP -->
+<!-- ========================================================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ===================================== -->
-<!-- MAIN JAVASCRIPT -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
+<!-- CUSTOM JAVASCRIPT -->
+<!-- ========================================================= -->
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-<!-- ===================================== -->
+<!-- ========================================================= -->
 <!-- LIVE DATE & TIME -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
 
 <script>
 
@@ -615,37 +598,40 @@ function updateDateTime(){
 
     const now = new Date();
 
-    const dateOptions = {
+    const date = now.toLocaleDateString(
+        "en-IN",
+        {
+            weekday:"short",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
 
-        weekday : "short",
-        year    : "numeric",
-        month   : "long",
-        day     : "numeric"
+    const time = now.toLocaleTimeString(
+        "en-IN",
+        {
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit"
+        }
+    );
 
-    };
+    const dateElement =
+        document.getElementById("currentDate");
 
-    const timeOptions = {
-
-        hour   : "2-digit",
-        minute : "2-digit",
-        second : "2-digit"
-
-    };
-
-    const dateElement = document.getElementById("currentDate");
-    const timeElement = document.getElementById("currentTime");
+    const timeElement =
+        document.getElementById("currentTime");
 
     if(dateElement){
 
-        dateElement.innerHTML =
-            now.toLocaleDateString("en-IN", dateOptions);
+        dateElement.innerHTML = date;
 
     }
 
     if(timeElement){
 
-        timeElement.innerHTML =
-            now.toLocaleTimeString("en-IN", timeOptions);
+        timeElement.innerHTML = time;
 
     }
 
@@ -657,9 +643,9 @@ setInterval(updateDateTime,1000);
 
 </script>
 
-<!-- ===================================== -->
-<!-- PAGE SPECIFIC JAVASCRIPT -->
-<!-- ===================================== -->
+<!-- ========================================================= -->
+<!-- EXTRA JAVASCRIPT -->
+<!-- ========================================================= -->
 
 {% block extra_js %}
 {% endblock %}
