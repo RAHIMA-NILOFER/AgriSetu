@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        {% block title %}
+
+        AgriSetu | Smart Agricultural Subsidy Management System
+
+        {% endblock %}
+
+    </title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Favicon -->
+
+    <link rel="icon"
+          href="{{ url_for('static', filename='images/agriculture.png') }}">
+
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+<!-- ===================================== -->
+<!-- GOVERNMENT HEADER -->
+<!-- ===================================== -->
+
+<div class="gov-topbar">
+
+    <div class="container-fluid">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <div class="d-flex align-items-center">
+
+                    <div class="gov-logo">
+
+                        🇮🇳
+
+                    </div>
+
+                    <div>
+
+                        <div class="gov-title">
+
+                            Government of India
+
+                        </div>
+
+                        <div class="gov-subtitle">
+
+                            Ministry of Agriculture & Farmers Welfare
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 text-lg-end">
+
+                <span class="gov-info">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span id="currentDate"></span>
+
+                </span>
+
+                <span class="gov-info ms-3">
+
+                    <i class="bi bi-clock"></i>
+
+                    <span id="currentTime"></span>
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
+<!-- PORTAL HEADER -->
+<!-- ===================================== -->
+
+<header class="portal-header">
+
+    <div class="container-fluid py-3">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <div class="d-flex align-items-center">
+
+                    <div class="portal-icon">
+
+                        🌾
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="portal-title mb-1">
+
+                            AgriSetu
+
+                        </h2>
+
+                        <p class="portal-tagline mb-0">
+
+                            Smart Agricultural Subsidy Management System
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 text-lg-end">
+
+                <div class="admin-badge">
+
+                    <i class="bi bi-person-badge-fill"></i>
+
+                    Administrator
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+<!-- ===================================== -->
+<!-- NAVBAR -->
+<!-- ===================================== -->
+
+<nav class="navbar navbar-expand-lg portal-navbar sticky-top">
+
+    <div class="container-fluid">
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#portalNavbar"
+                aria-controls="portalNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="portalNavbar">
+
+            <ul class="navbar-nav mx-auto">
+
+                <!-- Home -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='index' %}active{% endif %}"
+                       href="{{ url_for('index') }}">
+
+                        <i class="bi bi-house-door-fill"></i>
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <!-- Dashboard -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='dashboard' %}active{% endif %}"
+                       href="{{ url_for('dashboard') }}">
+
+                        <i class="bi bi-speedometer2"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <!-- Farmers -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='farmers' %}active{% endif %}"
+                       href="{{ url_for('farmers') }}">
+
+                        <i class="bi bi-people-fill"></i>
+
+                        Farmers
+
+                    </a>
+
+                </li>
+
+                <!-- Register -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='register' %}active{% endif %}"
+                       href="{{ url_for('register') }}">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                        Register
+
+                    </a>
+
+                </li>
+
+                <!-- Inventory -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='inventory' %}active{% endif %}"
+                       href="{{ url_for('inventory') }}">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        Inventory
+
+                    </a>
+
+                </li>
+
+                <!-- Issue Subsidy -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                    href="{{ url_for('farmers') }}">
+
+                        <i class="bi bi-gift-fill"></i>
+
+                        Issue Subsidy
+
+                    </a>
+
+                </li>
+
+                <!-- GIS Map -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='map_view' %}active{% endif %}"
+                       href="{{ url_for('map_view') }}">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        GIS Map
+
+                    </a>
+
+                </li>
+
+                <!-- History -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link {% if request.endpoint=='history' %}active{% endif %}"
+                       href="{{ url_for('history') }}">
+
+                        <i class="bi bi-clock-history"></i>
+
+                        History
+
+                    </a>
+
+                </li>
+
+                <!-- Export -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url_for('export') }}">
+
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+                        Export CSV
+
+                    </a>
+
+                </li>
+
+                <!-- Logout -->
+
+                <li class="nav-item">
+
+                    <a class="nav-link text-warning"
+                       href="{{ url_for('logout') }}">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+<!-- ===================================== -->
+<!-- PAGE CONTENT -->
+<!-- ===================================== -->
+
+<main class="main-content">
+
+    <div class="container-fluid py-4">
+
+        <!-- Flash Messages -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm"
+                         role="alert">
+
+                        <i class="bi bi-info-circle-fill me-2"></i>
+
+                        {{ message }}
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close">
+
+                        </button>
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+        <!-- Dynamic Page Content -->
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</main>
+<!-- ===================================== -->
+<!-- GOVERNMENT FOOTER -->
+<!-- ===================================== -->
+
+<footer class="portal-footer mt-5">
+
+    <div class="container-fluid">
+
+        <div class="row gy-4">
+
+            <!-- About -->
+
+            <div class="col-lg-4">
+
+                <h5 class="footer-title">
+
+                    🌾 AgriSetu
+
+                </h5>
+
+                <p class="footer-text">
+
+                    AgriSetu is a Smart Agricultural Subsidy Management
+                    System developed using Flask, SQLite, Bootstrap and
+                    Leaflet Maps to provide transparent, secure and
+                    efficient subsidy distribution for farmers.
+
+                </p>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="col-lg-4">
+
+                <h5 class="footer-title">
+
+                    Quick Links
+
+                </h5>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a href="{{ url_for('dashboard') }}">
+
+                            Dashboard
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ url_for('farmers') }}">
+
+                            Farmer Registry
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ url_for('register') }}">
+
+                            Register Farmer
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ url_for('inventory') }}">
+
+                            Inventory
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ url_for('map_view') }}">
+
+                            GIS Monitoring
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{{ url_for('history') }}">
+
+                            Subsidy History
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Government Information -->
+
+            <div class="col-lg-4">
+
+                <h5 class="footer-title">
+
+                    Government Information
+
+                </h5>
+
+                <p class="footer-text mb-2">
+
+                    <strong>Ministry:</strong><br>
+
+                    Ministry of Agriculture & Farmers Welfare
+
+                </p>
+
+                <p class="footer-text mb-2">
+
+                    <strong>Country:</strong><br>
+
+                    Government of India
+
+                </p>
+
+                <p class="footer-text mb-2">
+
+                    <strong>Portal Version:</strong>
+
+                    <span class="badge bg-success">
+
+                        3.0
+
+                    </span>
+
+                </p>
+
+                <p class="footer-text">
+
+                    Status :
+                    <span class="badge bg-success">
+
+                        Operational
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row align-items-center">
+
+            <div class="col-md-6">
+
+                <small>
+
+                    © 2026 Government of India.
+                    All Rights Reserved.
+
+                </small>
+
+            </div>
+
+            <div class="col-md-6 text-md-end">
+
+                <small>
+
+                    Developed using Flask, SQLite,
+                    Bootstrap 5, Leaflet Maps &
+                    OpenStreetMap.
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+<!-- ===================================== -->
+<!-- BOOTSTRAP JAVASCRIPT -->
+<!-- ===================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ===================================== -->
+<!-- MAIN JAVASCRIPT -->
+<!-- ===================================== -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<!-- ===================================== -->
+<!-- LIVE DATE & TIME -->
+<!-- ===================================== -->
+
+<script>
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    const dateOptions = {
+
+        weekday : "short",
+        year    : "numeric",
+        month   : "long",
+        day     : "numeric"
+
+    };
+
+    const timeOptions = {
+
+        hour   : "2-digit",
+        minute : "2-digit",
+        second : "2-digit"
+
+    };
+
+    const dateElement = document.getElementById("currentDate");
+    const timeElement = document.getElementById("currentTime");
+
+    if(dateElement){
+
+        dateElement.innerHTML =
+            now.toLocaleDateString("en-IN", dateOptions);
+
+    }
+
+    if(timeElement){
+
+        timeElement.innerHTML =
+            now.toLocaleTimeString("en-IN", timeOptions);
+
+    }
+
+}
+
+updateDateTime();
+
+setInterval(updateDateTime,1000);
+
+</script>
+
+<!-- ===================================== -->
+<!-- PAGE SPECIFIC JAVASCRIPT -->
+<!-- ===================================== -->
+
+{% block extra_js %}
+{% endblock %}
+
+</body>
+
+</html>

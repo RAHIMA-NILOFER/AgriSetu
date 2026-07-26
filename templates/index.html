@@ -1,0 +1,950 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | AgriSetu
+{% endblock %}
+
+{% block content %}
+
+<!-- ================================================= -->
+<!-- HERO SECTION                                      -->
+<!-- ================================================= -->
+
+<section class="hero-section mb-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-7">
+
+            <span class="badge bg-success px-3 py-2 mb-3">
+
+                🇮🇳 Government of India Portal
+
+            </span>
+
+            <h1 class="display-4 fw-bold text-success">
+
+                AgriSetu
+
+            </h1>
+
+            <h4 class="mb-4 text-secondary">
+
+                Smart Agricultural Subsidy Management System
+
+            </h4>
+
+            <p class="lead">
+
+                A unified digital platform developed for transparent,
+                efficient and technology-driven agricultural subsidy
+                management across Tamil Nadu.
+
+            </p>
+
+            <div class="mt-4">
+
+                <a href="{{ url_for('dashboard') }}"
+                   class="btn btn-success btn-lg me-2">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Dashboard
+
+                </a>
+
+                <a href="{{ url_for('register') }}"
+                   class="btn btn-outline-success btn-lg me-2">
+
+                    <i class="bi bi-person-plus-fill"></i>
+
+                    Register Farmer
+
+                </a>
+
+                <a href="{{ url_for('farmers') }}"
+                   class="btn btn-outline-dark btn-lg">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    Farmers
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-4">
+
+                    <h4 class="text-success mb-4">
+
+                        Portal Statistics
+
+                    </h4>
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+
+                            <div class="stat-card text-center">
+
+                                <div class="stat-icon">
+
+                                    👨‍🌾
+
+                                </div>
+
+                                <h2>
+
+                                    300+
+
+                                </h2>
+
+                                <small>
+
+                                    Registered Farmers
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="stat-card text-center">
+
+                                <div class="stat-icon">
+
+                                    🌾
+
+                                </div>
+
+                                <h2>
+
+                                    10
+
+                                </h2>
+
+                                <small>
+
+                                    Subsidy Schemes
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="stat-card text-center">
+
+                                <div class="stat-icon">
+
+                                    📍
+
+                                </div>
+
+                                <h2>
+
+                                    Live
+
+                                </h2>
+
+                                <small>
+
+                                    GIS Map
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="stat-card text-center">
+
+                                <div class="stat-icon">
+
+                                    📦
+
+                                </div>
+
+                                <h2>
+
+                                    100%
+
+                                </h2>
+
+                                <small>
+
+                                    Inventory Tracking
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- GOVERNMENT NOTICE                                 -->
+<!-- ================================================= -->
+
+<div class="alert alert-success">
+
+    <strong>
+
+        Latest Announcement
+
+    </strong>
+
+    <marquee>
+
+        PM-KISAN Registration Open • Seed Subsidy Distribution Started •
+        Fertilizer Stock Updated • Farmers are requested to verify their
+        details before subsidy distribution.
+
+    </marquee>
+
+</div>
+
+<!-- ================================================= -->
+<!-- CITIZEN SERVICES                                  -->
+<!-- ================================================= -->
+
+<div class="row mb-5">
+
+    <div class="col-12 mb-4">
+
+        <h2 class="fw-bold text-success">
+
+            Citizen Services
+
+        </h2>
+
+        <hr>
+
+    </div>
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body text-center">
+
+                <h1>
+
+                    👨‍🌾
+
+                </h1>
+
+                <h4>
+
+                    Farmer Registry
+
+                </h4>
+
+                <p>
+
+                    Register and manage farmer information digitally.
+
+                </p>
+
+                <a href="{{ url_for('farmers') }}"
+                   class="btn btn-success">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body text-center">
+
+                <h1>
+
+                    📦
+
+                </h1>
+
+                <h4>
+
+                    Inventory
+
+                </h4>
+
+                <p>
+
+                    Manage subsidy inventory and warehouse stock.
+
+                </p>
+
+                <a href="{{ url_for('inventory') }}"
+                   class="btn btn-success">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body text-center">
+
+                <h1>
+
+                    🗺
+
+                </h1>
+
+                <h4>
+
+                    GIS Monitoring
+
+                </h4>
+
+                <p>
+
+                    Monitor registered farmers using an interactive map.
+
+                </p>
+
+                <a href="{{ url_for('map_view') }}"
+                   class="btn btn-success">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+        <!-- ============================================== -->
+    <!-- ADMINISTRATIVE SERVICES                         -->
+    <!-- ============================================== -->
+
+    <div class="row mt-5 mb-5">
+
+        <div class="col-12 mb-4">
+
+            <h2 class="fw-bold text-success">
+
+                Administrative Services
+
+            </h2>
+
+            <hr>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1>📊</h1>
+
+                    <h5>Dashboard</h5>
+
+                    <p>
+
+                        Monitor overall subsidy distribution,
+                        farmer statistics and system performance.
+
+                    </p>
+
+                    <a href="{{ url_for('dashboard') }}"
+                       class="btn btn-success">
+
+                        View
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1>📝</h1>
+
+                    <h5>Register Farmer</h5>
+
+                    <p>
+
+                        Add new farmers into the digital
+                        subsidy management portal.
+
+                    </p>
+
+                    <a href="{{ url_for('register') }}"
+                       class="btn btn-success">
+
+                        Register
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1>📜</h1>
+
+                    <h5>History</h5>
+
+                    <p>
+
+                        View previous subsidy distribution
+                        records and transaction history.
+
+                    </p>
+
+                    <a href="{{ url_for('history') }}"
+                       class="btn btn-success">
+
+                        View
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1>📤</h1>
+
+                    <h5>Export Data</h5>
+
+                    <p>
+
+                        Export farmer records and reports
+                        into CSV format.
+
+                    </p>
+
+                    <a href="{{ url_for('export') }}"
+                       class="btn btn-success">
+
+                        Export
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- WHY AGRISETU                                   -->
+    <!-- ============================================== -->
+
+    <section class="mb-5">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body p-5">
+
+                <h2 class="text-success fw-bold mb-4">
+
+                    Why Choose AgriSetu?
+
+                </h2>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+
+                                ✅ Transparent Subsidy Distribution
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Digital Farmer Registry
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ GIS Based Monitoring
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Inventory Tracking
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Secure Database
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+
+                                ✅ Government Ready Interface
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Fast Search
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Easy Report Generation
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Farmer History
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                ✅ Easy Administration
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- GOVERNMENT OBJECTIVES                           -->
+    <!-- ============================================== -->
+
+    <section class="mb-5">
+
+        <div class="row">
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3 class="text-success">
+
+                            🌱 Sustainability
+
+                        </h3>
+
+                        <p>
+
+                            Encourage sustainable agricultural
+                            practices by ensuring timely
+                            distribution of government subsidies.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3 class="text-success">
+
+                            🚜 Productivity
+
+                        </h3>
+
+                        <p>
+
+                            Improve agricultural productivity
+                            through better access to seeds,
+                            fertilizers and farming equipment.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h3 class="text-success">
+
+                            🤝 Transparency
+
+                        </h3>
+
+                        <p>
+
+                            Ensure fair, transparent and
+                            accountable subsidy management
+                            through digital records.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ============================================== -->
+<!-- KNOW MORE ABOUT AGRISETU                       -->
+<!-- ============================================== -->
+
+<section class="mb-5">
+
+    <div class="card border-0 shadow">
+
+        <div class="card-body p-5">
+
+            <h2 class="text-success fw-bold mb-4">
+
+                Know More About AgriSetu
+
+            </h2>
+
+            <p class="lead">
+
+                <strong>AgriSetu</strong> is a smart web-based Agricultural
+                Subsidy Management System developed to simplify the registration,
+                verification, monitoring and distribution of government subsidies
+                to farmers.
+
+            </p>
+
+            <p>
+
+                The portal enables agricultural officers to digitally manage
+                farmer records, monitor subsidy distribution, maintain inventory,
+                visualize farmer locations through GIS mapping and generate
+                comprehensive reports for better decision making.
+
+            </p>
+
+            <div class="row mt-4">
+
+                <div class="col-md-3 text-center">
+
+                    <h1 class="text-success">
+                        👨‍🌾
+                    </h1>
+
+                    <h5>Farmer Registry</h5>
+
+                    <p>
+
+                        Centralized farmer database.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 text-center">
+
+                    <h1 class="text-success">
+                        📦
+                    </h1>
+
+                    <h5>Inventory</h5>
+
+                    <p>
+
+                        Real-time subsidy stock management.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 text-center">
+
+                    <h1 class="text-success">
+                        🗺
+                    </h1>
+
+                    <h5>GIS Monitoring</h5>
+
+                    <p>
+
+                        Interactive farmer location mapping.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 text-center">
+
+                    <h1 class="text-success">
+                        📊
+                    </h1>
+
+                    <h5>Analytics</h5>
+
+                    <p>
+
+                        Reports and statistical insights.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ============================================== -->
+<!-- CONTACT & SUPPORT                              -->
+<!-- ============================================== -->
+
+<section class="mb-5">
+
+    <div class="row">
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card h-100">
+
+                <div class="card-header">
+
+                    Contact Information
+
+                </div>
+
+                <div class="card-body">
+
+                    <p>
+
+                        <strong>Department:</strong><br>
+
+                        Ministry of Agriculture & Farmers Welfare
+
+                    </p>
+
+                    <p>
+
+                        <strong>Email:</strong><br>
+
+                        support@agrisetu.gov.in
+
+                    </p>
+
+                    <p>
+
+                        <strong>Helpline:</strong><br>
+
+                        1800-180-1551
+
+                    </p>
+
+                    <p>
+
+                        <strong>Working Hours:</strong><br>
+
+                        Monday – Friday | 9:30 AM – 5:30 PM
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card h-100">
+
+                <div class="card-header">
+
+                    Quick Help
+
+                </div>
+
+                <div class="card-body">
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+
+                            ✔ Register new farmers
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            ✔ Track subsidy status
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            ✔ Update inventory
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            ✔ Generate reports
+
+                        </li>
+
+                        <li class="list-group-item">
+
+                            ✔ View GIS map
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ============================================== -->
+<!-- FINAL CALL TO ACTION                           -->
+<!-- ============================================== -->
+
+<section class="text-center py-5">
+
+    <div class="card border-0 shadow">
+
+        <div class="card-body p-5">
+
+            <h2 class="text-success fw-bold">
+
+                Building a Digital Future for Indian Agriculture
+
+            </h2>
+
+            <p class="lead mt-3">
+
+                AgriSetu promotes transparency, efficiency and accessibility
+                in agricultural subsidy management through modern digital
+                technologies.
+
+            </p>
+
+            <a href="{{ url_for('dashboard') }}"
+               class="btn btn-success btn-lg mt-3">
+
+                <i class="bi bi-speedometer2"></i>
+
+                Go to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

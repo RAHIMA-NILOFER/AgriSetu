@@ -1,0 +1,843 @@
+/* =====================================================
+   AGRISETU - GOVERNMENT PORTAL
+   Version 2.0
+===================================================== */
+
+/* ===============================
+   GOOGLE FONT
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+
+:root{
+
+    --primary:#2E7D32;
+    --primary-dark:#1B5E20;
+    --primary-light:#66BB6A;
+
+    --secondary:#0D47A1;
+
+    --accent:#FFC107;
+
+    --danger:#D32F2F;
+    --warning:#F9A825;
+    --success:#2E7D32;
+
+    --background:#F4F7F6;
+
+    --white:#FFFFFF;
+
+    --text:#263238;
+
+    --text-light:#607D8B;
+
+    --border:#DADADA;
+
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+
+    --radius:12px;
+
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+/* ===============================
+   LINKS
+================================ */
+
+a{
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+a:hover{
+
+    text-decoration:none;
+
+}
+
+/* ===============================
+   HEADINGS
+================================ */
+
+h1,h2,h3,h4,h5,h6{
+
+    font-weight:700;
+
+    color:#1F2937;
+
+}
+
+/* ===============================
+   GOVERNMENT TOP BAR
+================================ */
+
+.gov-topbar{
+
+    background:#123524;
+
+    color:#fff;
+
+    padding:8px 30px;
+
+    font-size:14px;
+
+}
+
+.gov-logo{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    margin-right:15px;
+
+}
+
+.gov-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.gov-subtitle{
+
+    opacity:.85;
+
+}
+
+.gov-info{
+
+    font-size:14px;
+
+}
+
+/* ===============================
+   PORTAL HEADER
+================================ */
+
+.portal-header{
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+}
+
+.portal-icon{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:42px;
+
+    color:white;
+
+    margin-right:20px;
+
+}
+
+.portal-title{
+
+    font-size:36px;
+
+    font-weight:800;
+
+    color:var(--primary-dark);
+
+}
+
+.portal-tagline{
+
+    color:var(--text-light);
+
+    font-size:16px;
+
+}
+
+.admin-badge{
+
+    display:inline-block;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.portal-navbar{
+
+    background:var(--primary-dark);
+
+}
+
+.portal-navbar .nav-link{
+
+    color:white !important;
+
+    font-weight:600;
+
+    padding:15px 18px;
+
+    transition:.3s;
+
+}
+
+.portal-navbar .nav-link:hover{
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:8px;
+
+}
+
+.portal-navbar .nav-link i{
+
+    margin-right:6px;
+
+}
+
+/* ===============================
+   MAIN CONTENT
+================================ */
+
+.main-content{
+
+    min-height:70vh;
+
+    padding-top:25px;
+
+}
+
+/* ===============================
+   CARDS
+================================ */
+
+.card{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.card-header{
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+/* ===============================
+   STAT CARDS
+================================ */
+
+.stat-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.stat-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:rgba(46,125,50,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    color:var(--primary);
+
+}
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    padding:10px 20px;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-success{
+
+    background:#2E7D32;
+
+    border:none;
+
+}
+
+.btn-success:hover{
+
+    background:#1B5E20;
+
+}
+
+.btn-warning{
+
+    color:#fff;
+
+}
+
+.btn-danger{
+
+    border:none;
+
+}
+
+/* =====================================================
+   TABLES
+===================================================== */
+
+.table{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.table thead{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.table th{
+
+    font-weight:700;
+
+    border:none;
+
+    padding:16px;
+
+}
+
+.table td{
+
+    vertical-align:middle;
+
+    padding:14px;
+
+}
+
+.table tbody tr{
+
+    transition:.25s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#F4FFF4;
+
+}
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-control,
+.form-select{
+
+    border-radius:10px;
+
+    border:1px solid #CED4DA;
+
+    padding:12px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .2rem rgba(46,125,50,.15);
+
+}
+
+.form-label{
+
+    font-weight:600;
+
+    color:#37474F;
+
+}
+
+/* =====================================================
+   ALERTS
+===================================================== */
+
+.alert{
+
+    border:none;
+
+    border-left:5px solid var(--primary);
+
+    border-radius:10px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge{
+
+    padding:8px 12px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+}
+
+.badge-approved{
+
+    background:#2E7D32;
+
+    color:white;
+
+}
+
+.badge-pending{
+
+    background:#F9A825;
+
+    color:white;
+
+}
+
+.badge-rejected{
+
+    background:#D32F2F;
+
+    color:white;
+
+}
+
+/* =====================================================
+   DASHBOARD WIDGETS
+===================================================== */
+
+.dashboard-widget{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:25px;
+
+}
+
+.widget-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    color:var(--primary-dark);
+
+}
+
+/* =====================================================
+   INVENTORY CARDS
+===================================================== */
+
+.inventory-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.inventory-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.stock-good{
+
+    color:#2E7D32;
+
+    font-weight:700;
+
+}
+
+.stock-medium{
+
+    color:#F9A825;
+
+    font-weight:700;
+
+}
+
+.stock-low{
+
+    color:#D32F2F;
+
+    font-weight:700;
+
+}
+
+/* =====================================================
+   MAP
+===================================================== */
+
+#map{
+
+    width:100%;
+
+    height:650px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.leaflet-popup-content{
+
+    font-size:14px;
+
+}
+
+.map-sidebar{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.portal-footer{
+
+    background:#123524;
+
+    color:white;
+
+    padding:50px 0;
+
+}
+
+.footer-title{
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.footer-text{
+
+    color:#E8F5E9;
+
+}
+
+.footer-links{
+
+    list-style:none;
+
+    padding-left:0;
+
+}
+
+.footer-links li{
+
+    margin-bottom:10px;
+
+}
+
+.footer-links a{
+
+    color:#E8F5E9;
+
+}
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:fadeUp .7s ease;
+
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+    .portal-title{
+
+        font-size:28px;
+
+    }
+
+    .portal-icon{
+
+        width:60px;
+
+        height:60px;
+
+        font-size:30px;
+
+    }
+
+    .gov-topbar{
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .portal-title{
+
+        font-size:22px;
+
+    }
+
+    .portal-tagline{
+
+        font-size:13px;
+
+    }
+
+    .table{
+
+        font-size:14px;
+
+    }
+
+    #map{
+
+        height:450px;
+
+    }
+
+}
+
+@media print{
+
+    .portal-navbar,
+    .portal-footer,
+    .btn{
+
+        display:none !important;
+
+    }
+
+    body{
+
+        background:white;
+
+    }
+
+}
