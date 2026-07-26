@@ -272,7 +272,8 @@ Prince Shri Venkateshwara Padmavathy Engineering College
 ---
 
 #Watch Demo Video 
-**https://youtu.be/hHPgV6MTkp4?si=kfxDjxVvUR-QqiOP**
+
+**https://youtu.be/hHPgV6MTkp4?si=DBAn96P2o8C522wb**
 
 ---
 #live prototype
