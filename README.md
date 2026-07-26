@@ -263,7 +263,7 @@ Generate CSV Reports
 
 # 👨‍💻 Developed By
 
-**Sai Nirmal Kumar K S**
+**Rahima Nilofer**
 
 B.E. Computer Science and Engineering
 
@@ -271,12 +271,10 @@ Prince Shri Venkateshwara Padmavathy Engineering College
 
 ---
 
-# 📄 License
-
-This project is developed for educational and academic purposes.
+#Watch Demo Video 
+**https://youtu.be/hHPgV6MTkp4?si=kfxDjxVvUR-QqiOP**
 
 ---
+#live prototype
 
-## ⭐ Support
-
-If you like this project, consider giving it a **⭐ Star** on GitHub!
+**https://rahima2008.pythonanywhere.com**
