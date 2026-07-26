@@ -20,6 +20,8 @@ AgriSetu is a web-based Agricultural Subsidy Management System developed to digi
 
 The system minimizes paperwork, improves transparency, and provides efficient inventory management through an easy-to-use dashboard.
 
+Demo video and Live demo at end of readme
+
 ---
 
 # 🎯 Problem Statement
