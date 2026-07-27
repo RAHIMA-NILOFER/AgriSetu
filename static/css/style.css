@@ -2062,3 +2062,104 @@ PRINT
     }
 
 }
+/* ==========================================================
+   AGRISETU AI CHATBOT
+========================================================== */
+
+#chatbot-toggle{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#2e7d32;
+    color:#fff;
+    font-size:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    z-index:9999;
+    transition:.3s;
+}
+
+#chatbot-toggle:hover{
+    transform:scale(1.08);
+    background:#1b5e20;
+}
+
+#chatbot-box{
+    position:fixed;
+    right:25px;
+    bottom:100px;
+    width:360px;
+    height:500px;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    display:none;
+    flex-direction:column;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    z-index:9999;
+}
+
+#chatbot-header{
+    background:#2e7d32;
+    color:#fff;
+    padding:18px;
+    font-size:18px;
+    font-weight:700;
+}
+
+#chatbot-messages{
+    flex:1;
+    padding:15px;
+    overflow-y:auto;
+    background:#f4f7f4;
+}
+
+.bot{
+    background:#e8f5e9;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    max-width:90%;
+}
+
+.user{
+    background:#2e7d32;
+    color:#fff;
+    padding:12px;
+    border-radius:12px;
+    margin-left:auto;
+    margin-bottom:10px;
+    max-width:90%;
+}
+
+#chatbot-input-area{
+    display:flex;
+    border-top:1px solid #ddd;
+}
+
+#chat-input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:14px;
+    font-size:15px;
+}
+
+#chat-send{
+    width:90px;
+    border:none;
+    background:#2e7d32;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#chat-send:hover{
+    background:#1b5e20;
+}

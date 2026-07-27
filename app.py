@@ -6,7 +6,8 @@ from flask import (
     url_for,
     flash,
     session,
-    Response
+    Response,
+    jsonify
 )
 
 import sqlite3
@@ -1211,7 +1212,136 @@ def farmers_api():
         })
 
     return data
+# ==========================================================
+# AGRISETU CHATBOT API
+# ==========================================================
 
+@app.route("/chatbot", methods=["POST"])
+
+def chatbot():
+
+    message = request.json.get("message", "").lower().strip()
+
+    # -------- Farmer Registration --------
+    if any(word in message for word in [
+        "register",
+        "registration",
+        "add farmer",
+        "new farmer",
+        "register",
+        "registration",
+        "register farmer",
+        "farmer registration",
+        "new farmer",
+        "add farmer",
+        "signup",
+        "apply",
+        "application",
+        "enrol",
+        "join"
+    ]):
+        return jsonify({
+            "reply":
+            "To register a farmer, open the Register Farmer page and fill in all required details before clicking Submit."
+        })
+
+    # -------- Inventory --------
+    elif any(word in message for word in [
+        "inventory",
+        "stock",
+        "fertilizer",
+        "urea",
+        "dap","item","product"
+    ]):
+        return jsonify({
+            "reply":
+            "You can check the latest fertilizer and subsidy stock from the Inventory page."
+        })
+
+    # -------- Subsidy --------
+    elif any(word in message for word in [
+        "subsidy",
+        "issue",
+        "eligible",
+        "eligibility"
+    ]):
+        return jsonify({
+            "reply":
+            "Subsidies can be issued from the Farmer Details page if sufficient inventory is available."
+        })
+
+    # -------- History --------
+    elif any(word in message for word in [
+        "history",
+        "records",
+        "previous"
+    ]):
+        return jsonify({
+            "reply":
+            "Open the History page to view previously issued subsidies."
+        })
+
+    # -------- MAP --------
+    elif any(word in message for word in [
+        "map",
+        "location",
+        "farmer location",
+        "gis"
+    ]):
+        return jsonify({
+            "reply":
+            "The GIS Map page displays all registered farmers with their locations."
+        })
+
+    # -------- NEW INTENT (SIH Task 1) --------
+    elif any(word in message for word in [
+        "documents",
+        "aadhaar",
+        "required documents",
+        "proof"
+    ]):
+        return jsonify({
+            "reply":
+            "Required documents include Aadhaar Card, Bank Passbook, Land Ownership Proof and Mobile Number."
+        })
+
+    # -------- Greeting --------
+    elif any(word in message for word in [
+        "hi",
+        "hello",
+        "hey"
+    ]):
+        return jsonify({
+            "reply":
+            "Hello 👋 Welcome to AgriSetu. How can I assist you today?"
+        })
+    elif any(word in message for word in [
+            "login successful","successful","trustful","secure","correct"
+        ]):
+        return jsonify({
+            "reply":
+            "Yes ofc😊"
+        })
+    elif any(word in message for word in [
+                "really","Are","sure?","sure"
+            ]):
+            return jsonify({
+                "reply":
+                "Yes,this is best portal for farmer subsidy distribuiton"
+            })
+    elif any(word in message for word in [
+                "login","admin","admin error"
+            ]):
+            return jsonify({
+                "reply":
+                "You can login as admin through correct Demo credentials showwn below login box"
+            })
+
+    # -------- Unknown --------
+    return jsonify({
+        "reply":
+        "I'm sorry, I'm not sure about that. I can answer only AgriSetu-related questions such as farmer registration, subsidy distribution, inventory, map and documents. Please contact the Agriculture Department Office for further assistance."
+    })
 
 # ==========================================================
 # 404 ERROR
@@ -1242,13 +1372,8 @@ def internal_server_error(error):
 # ==========================================================
 # MAIN
 # ==========================================================
+import os
 
 if __name__ == "__main__":
-
-    initialize_database()
-
-    app.run(
-        debug=True,
-        host="0.0.0.0",
-        port=5000
-    )
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

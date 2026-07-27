@@ -649,6 +649,50 @@ setInterval(updateDateTime,1000);
 
 {% block extra_js %}
 {% endblock %}
+<!-- ===========================
+     AGRISETU AI CHATBOT
+============================ -->
+
+<div id="chatbot-toggle">
+    💬
+</div>
+
+<div id="chatbot-box">
+
+    <div id="chatbot-header">
+        🌾 AgriSetu Assistant
+    </div>
+
+    <div id="chatbot-messages">
+        <div class="bot">
+            👋 Hello! I am the AgriSetu Assistant.
+            <br><br>
+            Ask me about:
+            <ul>
+                <li>Farmer Registration</li>
+                <li>Inventory</li>
+                <li>Subsidies</li>
+                <li>GIS Map</li>
+                <li>Required Documents</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="chatbot-input-area">
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Ask something..."
+        >
+
+        <button id="chat-send">
+            Send
+        </button>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
 
 </body>
 
